@@ -1,12 +1,4 @@
-FactoryGirl.define do
-  # Define your Spree extensions Factories within this file to enable applications, and other extensions to use and override them.
-  #
-  # Example adding this to your spec_helper will load these Factories for use:
-  # require 'solidus_mailchimp_sync/factories'
-end
-
-
-FactoryGirl.modify do
+FactoryBot.modify do
   factory :order do
     factory :order_with_line_items do
       # This custom factory is from Solidus master at:
