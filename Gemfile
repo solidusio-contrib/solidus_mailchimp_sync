@@ -1,9 +1,17 @@
 source 'https://rubygems.org'
 
-gem 'solidus', github: 'solidusio/solidus'
-# Provides basic authentication functionality for testing parts of your engine
+branch = ENV.fetch('SOLIDUS_BRANCH', 'master')
+gem 'solidus', github: 'solidusio/solidus', branch: branch
 gem 'solidus_auth_devise', '~> 1.0'
 
-gem 'byebug'
+if branch == 'master' || branch >= 'v2.0'
+  gem 'rails-controller-testing', group: :test
+else
+  gem 'rails_test_params_backport'
+end
+
+gem 'sqlite3'
+gem 'pg', '~> 0.21'
+gem 'mysql2', '~> 0.4.10'
 
 gemspec

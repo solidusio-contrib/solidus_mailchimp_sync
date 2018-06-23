@@ -15,7 +15,9 @@ Gem::Specification.new do |s|
   s.files = Dir["{app,config,db,lib}/**/*", 'LICENSE', 'Rakefile', 'README.md']
   s.test_files = Dir['test/**/*']
 
-  s.add_dependency 'solidus_core', '~> 1.2'
+  s.add_dependency 'solidus_core', ['>= 1.2', '< 3']
+  s.add_dependency 'solidus_support'
+  s.add_dependency 'deface', '~> 1.0'
   s.add_dependency 'http', '~> 2.0'
   s.add_dependency 'ruby-progressbar', '~> 1.0' # already a solidus dependency
 
@@ -24,7 +26,8 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'coffee-rails'
   s.add_development_dependency 'sass-rails'
   s.add_development_dependency 'database_cleaner'
-  s.add_development_dependency 'factory_girl'
+  s.add_development_dependency 'factory_bot'
+  s.add_development_dependency 'ffaker'
   s.add_development_dependency 'rspec-rails'
   s.add_development_dependency 'rubocop', '0.37.2'
   s.add_development_dependency 'rubocop-rspec', '1.4.0'
