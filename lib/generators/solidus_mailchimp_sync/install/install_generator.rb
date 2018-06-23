@@ -5,7 +5,7 @@ module SolidusMailchimpSync
       class_option :auto_run_migrations, type: :boolean, default: false
 
       def copy_initializer
-        copy_file "config/initializers/solidus_mailchimp_sync.rb"
+        copy_file 'config/initializers/solidus_mailchimp_sync.rb'
       end
 
       # No migrations at present

@@ -2,7 +2,7 @@ require 'cgi'
 
 module SolidusMailchimpSync
   class UserSynchronizer < BaseSynchronizer
-    self.serializer_class_name = "::SolidusMailchimpSync::CustomerSerializer"
+    self.serializer_class_name = '::SolidusMailchimpSync::CustomerSerializer'
     self.synced_attributes = ['email']
 
     class_attribute :email_address_attribute

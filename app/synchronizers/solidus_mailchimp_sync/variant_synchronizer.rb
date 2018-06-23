@@ -1,6 +1,6 @@
 module SolidusMailchimpSync
   class VariantSynchronizer < BaseSynchronizer
-    self.serializer_class_name = "::SolidusMailchimpSync::VariantSerializer"
+    self.serializer_class_name = '::SolidusMailchimpSync::VariantSerializer'
     # Price updates are caught from after commit on Spree::Price
     self.synced_attributes = %w{id sku}
 

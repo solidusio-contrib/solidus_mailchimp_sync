@@ -6,8 +6,9 @@ module SolidusMailchimpSync
   mattr_accessor :api_key
   mattr_accessor :store_id
   mattr_accessor :enabled
-  self.enabled = true
   mattr_accessor :auto_sync_enabled
+
+  self.enabled = true
 
   def self.data_center
     @data_center ||= begin

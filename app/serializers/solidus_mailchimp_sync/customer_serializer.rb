@@ -20,9 +20,9 @@ module SolidusMailchimpSync
       # subsequent pushes. So our mailchimp id includes the email address,
       # and new mailchimp Customer will be created if email address changes.
       {
-        'id' => UserSynchronizer.customer_id(user),
-        'email_address' => user.send(UserSynchronizer.email_address_attribute),
-        'opt_in_status' => false
+        'id': UserSynchronizer.customer_id(user),
+        'email_address': user.send(UserSynchronizer.email_address_attribute),
+        'opt_in_status': false
       }
     end
 

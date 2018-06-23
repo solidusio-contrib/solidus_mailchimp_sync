@@ -3,6 +3,7 @@ if Spree.user_class
     after_commit :mailchimp_sync
 
     private
+
     def mailchimp_sync
       SolidusMailchimpSync::UserSynchronizer.new(self).auto_sync
     end

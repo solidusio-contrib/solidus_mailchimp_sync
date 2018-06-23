@@ -4,7 +4,7 @@ require 'solidus_mailchimp_sync'
 
 module SolidusMailchimpSync
   class Mailchimp
-    AUTH_USER = "ignored"
+    AUTH_USER = 'ignored'
 
     # If Mailchimp errors, will normally raise a SolidusMailchimpSync::Error, but
     # set `return_errors: true` to return the Error as return value instead.
@@ -29,11 +29,11 @@ module SolidusMailchimpSync
           request_url: url,
           request_body: body,
 
-          type: response_hash["type"],
-          title: response_hash["title"],
-          status: response_hash["status"] || response.code,
-          detail: response_hash["detail"],
-          instance: response_hash["instance"],
+          type: response_hash['type'],
+          title: response_hash['title'],
+          status: response_hash['status'] || response.code,
+          detail: response_hash['detail'],
+          instance: response_hash['instance'],
 
           response_hash: response_hash
         ).tap { |error| raise error unless return_errors }

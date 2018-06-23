@@ -2,6 +2,7 @@ Spree::Image.class_eval do
   after_commit :mailchimp_sync
 
   private
+
   def mailchimp_sync
     if self.viewable && self.viewable.is_a?(Spree::Variant)
       if self.viewable.is_master?
