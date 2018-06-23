@@ -1,7 +1,6 @@
-[![Build Status](https://travis-ci.org/friendsoftheweb/solidus_mailchimp_sync.svg?branch=master)](https://travis-ci.org/friendsoftheweb/solidus_mailchimp_sync)
-
 SolidusMailchimpSync
 ====================
+[![Build Status](https://travis-ci.org/jtapia/solidus_mailchimp_sync.svg?branch=master)](https://travis-ci.org/jtapia/solidus_mailchimp_sync)
 
 **WIP**
 
