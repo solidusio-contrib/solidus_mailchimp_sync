@@ -68,7 +68,5 @@ describe "Auto-sync on Spree::Order", clean: :truncation do
 
       order.contents.update_cart(line_items_attributes: [{id: order.line_items.first.id, quantity: 0}, { variant_id: variant2.id, quantity: 1 }])
     end
-
   end
-
 end

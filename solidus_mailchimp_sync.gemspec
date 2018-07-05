@@ -19,7 +19,6 @@ Gem::Specification.new do |s|
   s.add_dependency 'solidus_support'
   s.add_dependency 'deface', '~> 1.0'
   s.add_dependency 'http', '~> 2.0'
-  s.add_dependency 'ruby-progressbar', '~> 1.0' # already a solidus dependency
 
   s.add_development_dependency 'capybara'
   s.add_development_dependency 'poltergeist'

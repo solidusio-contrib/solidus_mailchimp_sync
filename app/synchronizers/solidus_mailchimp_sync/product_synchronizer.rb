@@ -1,6 +1,6 @@
 module SolidusMailchimpSync
   class ProductSynchronizer < BaseSynchronizer
-    self.serializer_class_name = "::SolidusMailchimpSync::ProductSerializer"
+    self.serializer_class_name = '::SolidusMailchimpSync::ProductSerializer'
     self.synced_attributes = %w{name description slug available_on}
 
     # Since Mailchimp API 3.0 doesn't let us update products, important to wait

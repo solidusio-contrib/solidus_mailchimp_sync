@@ -64,6 +64,5 @@ module SolidusMailchimpSync
     def self.url(path)
       base_url + path.sub(%r{\A/}, '')
     end
-
   end
 end

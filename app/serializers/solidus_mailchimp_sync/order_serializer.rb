@@ -24,19 +24,17 @@ module SolidusMailchimpSync
         lines: line_items
       }
 
-
       # Mailchimp does not take URLs for orders, just carts
       unless order_complete?
         url = cart_url
-        hash["checkout_url"] = url if url
+        hash['checkout_url'] = url if url
       end
 
       if order.completed_at.present?
-        hash["processed_at_foreign"] =  order.completed_at.utc.iso8601
+        hash['processed_at_foreign'] = order.completed_at.utc.iso8601
       end
 
-      hash["shipping_total"] = shipping_total if shipping_total
-
+      hash['shipping_total'] = shipping_total if shipping_total
       hash
     end
 
