@@ -5,7 +5,7 @@ require 'spec_helper'
 
 # need truncation instead of transaction db cleaner, so our after_commit
 # hooks happen!
-describe "Auto-sync on Spree::Order", clean: :truncation do
+describe "Auto-sync on Spree::Order" do
   around do |example|
     # Enable auto-sync so we can test it, but disable actually talking
     # to Mailchimp, we'll mock that part, it's not what we're testing here.

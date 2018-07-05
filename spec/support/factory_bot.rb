@@ -1,3 +1,4 @@
+require 'ffaker'
 require 'factory_bot'
 
 RSpec.configure do |config|
