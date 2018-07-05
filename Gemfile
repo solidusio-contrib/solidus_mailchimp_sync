@@ -10,7 +10,6 @@ else
   gem 'rails_test_params_backport'
 end
 
-gem 'sqlite3'
 gem 'pg', '~> 0.21'
 gem 'mysql2', '~> 0.4.10'
 
