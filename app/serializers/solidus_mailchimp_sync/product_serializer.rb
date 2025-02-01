@@ -62,7 +62,7 @@ module SolidusMailchimpSync
     end
 
     def sellable_variants
-      if (product.association(:variants).loaded? ? product.variants.length > 0 : product.variants.exists?)
+      if product.association(:variants).loaded? ? !product.variants.empty? : product.variants.exists?
         product.variants
       else
         [product.master]

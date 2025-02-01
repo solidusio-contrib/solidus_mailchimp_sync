@@ -6,7 +6,7 @@ Spree::Image.class_eval do
   private
 
   def mailchimp_sync
-    if self.viewable && self.viewable.is_a?(Spree::Variant)
+    if self.viewable.is_a?(Spree::Variant)
       if self.viewable.is_master?
         # Need to sync all variants.
         SolidusMailchimpSync::ProductSynchronizer.new(self.viewable.product).auto_sync(force: true)

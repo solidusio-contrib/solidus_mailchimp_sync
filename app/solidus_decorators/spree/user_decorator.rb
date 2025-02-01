@@ -1,13 +1,11 @@
 # frozen_string_literal: true
 
-if Spree.user_class
-  Spree.user_class.class_eval do
-    after_commit :mailchimp_sync
+Spree.user_class.class_eval do
+  after_commit :mailchimp_sync
 
-    private
+  private
 
-    def mailchimp_sync
-      SolidusMailchimpSync::UserSynchronizer.new(self).auto_sync
-    end
+  def mailchimp_sync
+    SolidusMailchimpSync::UserSynchronizer.new(self).auto_sync
   end
 end

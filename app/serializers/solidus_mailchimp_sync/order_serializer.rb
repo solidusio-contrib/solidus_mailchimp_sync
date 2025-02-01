@@ -44,9 +44,9 @@ module SolidusMailchimpSync
     def cart_url
       # Mailchimp does not take URLs for orders, just carts
       unless order_complete?
-        if Rails.application.routes.default_url_options[:host] && Spree::Core::Engine.routes.url_helpers.respond_to?(:cart_url)
-          Spree::Core::Engine.routes.url_helpers.cart_url(host: Rails.application.routes.default_url_options[:host])
-        end
+        return unless Rails.application.routes.default_url_options[:host] && Spree::Core::Engine.routes.url_helpers.respond_to?(:cart_url)
+
+        Spree::Core::Engine.routes.url_helpers.cart_url(host: Rails.application.routes.default_url_options[:host])
       end
     end
 

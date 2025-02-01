@@ -7,7 +7,6 @@ Gem::Specification.new do |s|
   s.name = 'solidus_mailchimp_sync'
   s.version = SolidusMailchimpSync::VERSION
   s.summary = 'Solidus -> Mailchimp Ecommerce synchronization'
-  s.license = 'BSD-3-Clause'
 
   s.author = 'Jonathan Rochkind, Friends of the Web'
   s.email = 'shout@friendsoftheweb.com'

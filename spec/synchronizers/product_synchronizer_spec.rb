@@ -2,41 +2,55 @@
 
 require 'spec_helper'
 
-describe SolidusMailchimpSync::ProductSynchronizer do
-  let(:product) { create(:product, name: "PRODUCT NAME") { |p| p.images << create(:image, attachment_updated_at: Time.new(2016, 5, 5, 10, 10, 10, "+05:00")) } }
+describe 'SolidusMailchimpSync::ProductSynchronizer' do
+  let(:product) do
+    create(
+      :product,
+      name: "PRODUCT NAME"
+    ) do |p|
+      p.images << create(
+        :image,
+        attachment_updated_at: Time.new(2016, 5, 5, 10, 10, 10, "+05:00")
+      )
+    end
+  end
 
   before do
     delete_if_present("/products/#{product.id}")
   end
 
-  describe "with VCR", vcr: true do
-    it "first time sync" do
+  describe 'with VCR', vcr: true do
+    it 'first time sync' do
       syncer = SolidusMailchimpSync::ProductSynchronizer.new(product)
       response = syncer.sync
 
-      expect(response["id"]).to eq(product.id.to_s)
-      expect(response["title"]).to eq(product.name)
+      expect(response['id']).to eq(product.id.to_s)
+      expect(response['title']).to eq(product.name)
 
-      expected_url = spree.product_url(product, host: Rails.application.routes.default_url_options[:host])
-      expect(response["url"]).to eq(expected_url)
-      expect(
-        response["variants"].all? do |v|
-          v["url"] == expected_url
-        end
+      expected_url = spree.product_url(
+        product,
+        host: Rails.application.routes.default_url_options[:host]
       )
+      expect(response['url']).to eq(expected_url)
+      expect(response['variants'].map { |v| v['url'] })
+        .to include(expected_url)
 
-      expect(response["image_url"]).to eq(product.images.first.attachment.url)
-      expect(
-        response["variants"].all? do |v|
-          v["image_url"] == product.images.first.attachment.url
-        end
-      )
+      expect(response['image_url']).to eq(product.images.first.attachment.url)
+      expect(response['url']).to eq(expected_url)
+      expect(response['variants'].map { |v| v['image_url'] })
+        .to include(product.images.first.attachment.url)
     end
 
     describe "with variants" do
       let(:product) do
         create(:product, name: "PRODUCT NAME") do |p|
-          2.times { |i| p.variants << create(:variant, product: p, sku: "PROD_SYNC_SKU_#{i}") }
+          2.times do |i|
+            p.variants << create(
+              :variant,
+              product: p,
+              sku: "PROD_SYNC_SKU_#{i}"
+            )
+          end
         end
       end
 
@@ -46,15 +60,19 @@ describe SolidusMailchimpSync::ProductSynchronizer do
 
         expect(response["variants"].length).to eq(product.variants.length)
         product.variants.each do |v|
-          expect(response["variants"].find_all { |vh| vh["sku"] == v.sku}.count).to eq(1)
+          expect(response["variants"].find_all { |vh| vh["sku"] == v.sku }.count).to eq(1)
         end
+
         expect(response["variants"].none? { |vh| vh["sku"] == product.master.sku }).to be(true)
       end
     end
 
     describe "visibility" do
       describe "available" do
-        let(:product) { create(:product, available_on: Time.now - 1.week) }
+        let(:product) do
+          create(:product, available_on: Time.zone.now - 1.week)
+        end
+
         before do
           # precondition
           expect(product.available?).to be(true)
@@ -72,6 +90,7 @@ describe SolidusMailchimpSync::ProductSynchronizer do
 
       describe 'not available' do
         let(:product) { create(:product, available_on: nil) }
+
         before do
           # precondition
           expect(product.available?).to be(false)
@@ -91,6 +110,7 @@ describe SolidusMailchimpSync::ProductSynchronizer do
             syncer = SolidusMailchimpSync::ProductSynchronizer.new(product)
             expect(syncer.should_sync?).to be(false)
           end
+
           it "does not auto_sync" do
             syncer = SolidusMailchimpSync::ProductSynchronizer.new(product)
             result = syncer.auto_sync
@@ -106,12 +126,13 @@ describe SolidusMailchimpSync::ProductSynchronizer do
       before do
         SolidusMailchimpSync::ProductSynchronizer.new(product).sync
       end
+
       it "updates variants" do
         product.update(name: "NEW NAME")
         syncer = SolidusMailchimpSync::ProductSynchronizer.new(product)
         response = syncer.sync
 
-        expect( response.all? { |v| v["title"] == "NEW NAME" })
+        expect(response.map{ |v| v["title"] }).to include('NEW NAME')
       end
     end
   end

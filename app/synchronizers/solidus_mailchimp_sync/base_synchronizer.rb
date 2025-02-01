@@ -54,6 +54,7 @@ module SolidusMailchimpSync
       if ignore_404 && e.status == 404
         return nil
       end
+
       raise e
     end
 

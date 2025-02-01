@@ -20,8 +20,10 @@ module SolidusMailchimpSync
       url = url(path)
       args = [method.to_sym, url]
       args << { json: body } if body
-      response = HTTP.basic_auth(user: AUTH_USER, pass: SolidusMailchimpSync.api_key).
-                      request(*args)
+      response = HTTP.basic_auth(
+        user: AUTH_USER,
+        pass: SolidusMailchimpSync.api_key
+      ).request(*args)
 
       response_hash = response.body.present? ? JSON.parse(response.body.to_s) : { status: response.code }
 
@@ -43,9 +45,16 @@ module SolidusMailchimpSync
 
       response_hash
     rescue JSON::ParserError => e
-      return Error.new(request_method: method, request_url: url, request_body: body,
-                      status: response.status, detail: "JSON::ParserError #{e}",
-                      response_body: response.body.to_s).tap { |error| raise error unless return_errors }
+      Error.new(
+        request_method: method,
+        request_url: url,
+        request_body: body,
+        status: response.status,
+        detail: "JSON::ParserError #{e}",
+        response_body: response.body.to_s
+      ).tap do |error|
+        raise error unless return_errors
+      end
     end
 
     # Assumes an ECommerce request to our store, prefixes path argument with
@@ -55,7 +64,7 @@ module SolidusMailchimpSync
         raise ArgumentError, "Missing required configuration `SolidusMailchimpSync.store_id`"
       end
 
-      path = "/ecommerce/stores/#{store_id}/" + path.sub(%r{\A/}, '')
+      path = "/ecommerce/stores/#{store_id}/" + path.delete_prefix(%r{\A/}, '')
       request(method, path, body: body, return_errors: return_errors)
     end
 
@@ -64,7 +73,7 @@ module SolidusMailchimpSync
     end
 
     def self.url(path)
-      base_url + path.sub(%r{\A/}, '')
+      base_url + path.delete_prefix(%r{\A/}, '')
     end
   end
 end

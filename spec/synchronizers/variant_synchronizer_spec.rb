@@ -2,11 +2,12 @@
 
 require 'spec_helper'
 
-describe SolidusMailchimpSync::VariantSynchronizer, vcr: true do
+describe 'SolidusMailchimpSync::VariantSynchronizer', vcr: true do
   let(:syncer) { SolidusMailchimpSync::VariantSynchronizer.new(variant) }
 
   describe "with a product not synced yet" do
     let(:variant) { create(:variant) }
+
     before do
       delete_if_present "/products/#{variant.product.id}"
     end
