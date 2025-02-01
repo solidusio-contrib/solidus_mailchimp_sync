@@ -1,29 +1,38 @@
+# frozen_string_literal: true
+
+# Configure Rails Environment
 ENV['RAILS_ENV'] = 'test'
 
-require File.expand_path('../dummy/config/environment.rb', __FILE__)
-abort('The Rails environment is running in production mode!') if Rails.env.production?
+require 'rails-controller-testing'
+Rails::Controller::Testing.install
 
-require 'rspec/rails'
+# Run Coverage report
+require 'solidus_dev_support/rspec/coverage'
 
-Dir[File.join(File.dirname(__FILE__), 'support/**/*.rb')].each { |f| require f }
+# Create the dummy app if it's still missing.
+dummy_env = "#{__dir__}/dummy/config/environment.rb"
+system 'bin/rake extension:test_app' unless File.exist? dummy_env
+require dummy_env
 
-begin
-  ActiveRecord::Migration.maintain_test_schema!
-rescue ActiveRecord::PendingMigrationError
-  `bin/rails db:migrate`
-end
+# Requires factories and other useful helpers defined in spree_core.
+require 'solidus_dev_support/rspec/feature_helper'
 
-# Requires factories defined in lib/solidus_mailchimp_sync/factories.rb
-require 'solidus_mailchimp_sync/factories'
+# Requires supporting ruby files with custom matchers and macros, etc,
+# in spec/support/ and its subdirectories.
+Dir["#{__dir__}/support/**/*.rb"].sort.each { |f| require f }
 
-RSpec.configure do |config|
-  config.fixture_path = "#{::Rails.root}/spec/fixtures"
-  config.use_transactional_fixtures = false
-  config.infer_spec_type_from_file_location!
-  config.filter_rails_from_backtrace!
-  config.fail_fast = ENV['FAIL_FAST'] || false
-  config.order = 'random'
-end
+# Requires factories defined in lib/solidus_payment_method_by_zone/testing_support/factories.rb
+SolidusDevSupport::TestingSupport::Factories.load_for(SolidusMailchimpSync::Engine)
 
 Rails.application.routes.default_url_options[:host] = 'www.example.com'
+
 SolidusMailchimpSync.auto_sync_enabled = false
+
+RSpec.configure do |config|
+  config.infer_spec_type_from_file_location!
+  config.use_transactional_fixtures = false
+
+  if Spree.solidus_gem_version < Gem::Version.new('2.11')
+    config.extend Spree::TestingSupport::AuthorizationHelpers::Request, type: :system
+  end
+end
