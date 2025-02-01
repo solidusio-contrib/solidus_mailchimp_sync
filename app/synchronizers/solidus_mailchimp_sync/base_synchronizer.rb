@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module SolidusMailchimpSync
   # Individual synchronizers will implement a #sync method, which will be run
   # under an ActiveJob so won't have access to previous state.

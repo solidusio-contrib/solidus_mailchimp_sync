@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module SolidusMailchimpSync
   class Error < StandardError
     attr_reader :type, :title, :status, :detail, :instance,

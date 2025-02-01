@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 namespace :solidus_mailchimp_sync do
   desc "Create a Mailchimp Store. ENV LIST_ID param is required"
   task create_mailchimp_store: :environment do

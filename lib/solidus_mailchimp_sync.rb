@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'solidus_core'
 require 'solidus_mailchimp_sync/engine'
 require 'solidus_mailchimp_sync/util'

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # https://github.com/friendsoftheweb/solidus_mailchimp_sync
 
 # Strogly suggest you set your mailchimp API key in your ENV

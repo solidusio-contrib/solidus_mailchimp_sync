@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Spree::Variant.class_eval do
   after_commit :mailchimp_sync
 

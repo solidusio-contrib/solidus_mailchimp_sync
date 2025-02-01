@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module SolidusMailchimpSync
   # Syncs solidus orders to mailchimp Carts and Orders, adding/deleting
   # as cart status changes.

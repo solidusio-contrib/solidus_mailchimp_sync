@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module SolidusMailchimpSync
   class ProductSynchronizer < BaseSynchronizer
     self.serializer_class_name = '::SolidusMailchimpSync::ProductSerializer'

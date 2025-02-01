@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module SolidusMailchimpSync
   module Generators
     class InstallGenerator < Rails::Generators::Base

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module SolidusMailchimpSync
   class SyncJob < ActiveJob::Base
     class_attribute :use_queue_name

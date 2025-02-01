@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'json'
 require 'http'
 require 'solidus_mailchimp_sync'

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 if Spree.user_class
   Spree.user_class.class_eval do
     after_commit :mailchimp_sync
