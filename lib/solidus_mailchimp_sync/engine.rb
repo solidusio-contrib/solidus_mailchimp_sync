@@ -22,6 +22,10 @@ module SolidusMailchimpSync
       end
     end
 
+    initializer 'solidus_mailchimp_sync.environment', before: :load_config_initializers do |_app|
+      SolidusMailchimpSync::Config = SolidusMailchimpSync::Configuration.new
+    end
+
     config.to_prepare(&method(:activate).to_proc)
   end
 end

@@ -35,6 +35,7 @@ Gem::Specification.new do |s|
 
   s.add_dependency 'deface'
   s.add_dependency 'http', '~> 2.0'
+  s.add_dependency 'MailchimpMarketing'
   s.add_dependency 'solidus_api', solidus_version
   s.add_dependency 'solidus_backend', solidus_version
   s.add_dependency 'solidus_core', solidus_version

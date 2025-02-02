@@ -3,7 +3,6 @@
 # https://github.com/friendsoftheweb/solidus_mailchimp_sync
 
 # Strogly suggest you set your mailchimp API key in your ENV
-# binding.pry
 SolidusMailchimpSync.configure do |config|
   config.api_key = ENV['MAILCHIMP_API_KEY']
 
@@ -24,7 +23,7 @@ SolidusMailchimpSync.configure do |config|
 
   # Turn off not just auto-sync, but completely disable connections
   # to mailchip at all, make them no-op.
-  # SolidusMailchimpSync.enabled = false
+  # config.enabled = false
 
   # You may want to provide custom serializers, to provide custom
   # urls (esp if you don't use Solidus frontend), or account
