@@ -35,9 +35,13 @@ Gem::Specification.new do |s|
 
   s.add_dependency 'deface'
   s.add_dependency 'http', '~> 2.0'
+  s.add_dependency 'solidus_api', solidus_version
+  s.add_dependency 'solidus_backend', solidus_version
   s.add_dependency 'solidus_core', solidus_version
-  s.add_dependency 'solidus_support', '~> 0.5'
+  s.add_dependency 'solidus_support', ['>= 0.8.1', '< 1']
 
   s.add_development_dependency 'rails-controller-testing'
   s.add_development_dependency 'solidus_dev_support', '~> 2.10'
+  s.add_development_dependency 'vcr'
+  s.add_development_dependency 'webmock'
 end
