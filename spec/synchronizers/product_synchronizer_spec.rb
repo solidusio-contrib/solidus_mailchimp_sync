@@ -9,7 +9,8 @@ describe 'SolidusMailchimpSync::ProductSynchronizer' do
       name: "PRODUCT NAME"
     ) do |p|
       p.images << create(
-        :image
+        :image,
+        attachment_updated_at: Time.new(2016, 5, 5, 10, 10, 10, '+05:00')
       )
     end
   end
