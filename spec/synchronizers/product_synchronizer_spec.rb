@@ -19,7 +19,7 @@ describe 'SolidusMailchimpSync::ProductSynchronizer' do
     delete_if_present("/products/#{product.id}")
   end
 
-  describe 'with VCR', vcr: true, record: :new_episodes do
+  describe 'with VCR', vcr: true do
     it 'first time sync' do
       syncer = SolidusMailchimpSync::ProductSynchronizer.new(product)
       response = syncer.sync

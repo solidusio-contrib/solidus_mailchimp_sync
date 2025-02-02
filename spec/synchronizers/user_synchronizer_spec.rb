@@ -2,7 +2,7 @@
 
 require 'spec_helper'
 
-describe 'SolidusMailchimpSync::UserSynchronizer', vcr: true, record: :new_episodes do
+describe 'SolidusMailchimpSync::UserSynchronizer', vcr: true do
   let(:syncer) { SolidusMailchimpSync::UserSynchronizer.new(user) }
   let(:user) do
     create(
