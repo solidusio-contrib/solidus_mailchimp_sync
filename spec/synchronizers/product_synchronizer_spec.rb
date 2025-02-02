@@ -93,7 +93,6 @@ describe 'SolidusMailchimpSync::ProductSynchronizer' do
 
         before do
           # precondition
-          # binding.pry
           expect(product.available?).to be_nil
         end
 

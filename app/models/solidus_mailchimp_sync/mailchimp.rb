@@ -13,7 +13,6 @@ module SolidusMailchimpSync
     def self.request(method, path, body: nil, return_errors: false)
       return unless SolidusMailchimpSync::Config.enabled
 
-      # binding.pry
       if SolidusMailchimpSync::Config.api_key.blank?
         raise ArgumentError, "Missing required configuration `SolidusMailchimpSync::Config.api_key`"
       end
