@@ -18,10 +18,10 @@ module SolidusMailchimpSync
         return nil
       end
 
-      unless model.persisted?
-        delete
-      else
+      if model.persisted?
         put
+      else
+        delete
       end
     end
 

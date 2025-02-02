@@ -65,7 +65,7 @@ module SolidusMailchimpSync
         raise ArgumentError, "Missing required configuration `SolidusMailchimpSync::Config.store_id`"
       end
 
-      path = "/ecommerce/stores/#{store_id}/" + path.sub(%r{\A/}, '')
+      path = "/ecommerce/stores/#{store_id}/" + path.delete_prefix('/')
       request(method, path, body: body, return_errors: return_errors)
     end
 
@@ -74,7 +74,7 @@ module SolidusMailchimpSync
     end
 
     def self.url(path)
-      base_url + path.sub(%r{\A/}, '')
+      base_url + path.delete_prefix('/')
     end
   end
 end

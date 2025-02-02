@@ -27,10 +27,10 @@ describe 'Auto-sync on Spree::Order' do
 
     it 'deletes and creates' do
       allow_any_instance_of(SolidusMailchimpSync::OrderSynchronizer).to receive(:delete).
-        with('/carts/#{order.id}', { ignore404: true })
+        with("/carts/#{order.id}", { ignore404: true })
 
       allow_any_instance_of(SolidusMailchimpSync::OrderSynchronizer).to receive(:post_or_patch).
-        with(post_path: '/orders', patch_path: '/orders/#{order.id}')
+        with(post_path: '/orders', patch_path: "/orders/#{order.id}")
 
       order.complete!
     end

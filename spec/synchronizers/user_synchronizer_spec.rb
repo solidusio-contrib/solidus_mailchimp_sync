@@ -19,29 +19,32 @@ describe 'SolidusMailchimpSync::UserSynchronizer', vcr: true do
     delete_if_present "/customers/#{SolidusMailchimpSync::UserSynchronizer.customer_id(user)}"
   end
 
-  describe "new user" do
-    it "syncs" do
+  describe 'new user' do
+    it 'syncs' do
       response = syncer.sync
 
-      expect(response["id"]).to eq(SolidusMailchimpSync::UserSynchronizer.customer_id(user))
-      expect(response["email_address"]).to eq(user.email)
+      expect(response['id']).to eq(SolidusMailchimpSync::UserSynchronizer.customer_id(user))
+      expect(response['email_address']).to eq(user.email)
     end
   end
 
-  describe "already exists on mailchimp" do
+  describe 'already exists on mailchimp' do
     before do
       syncer.sync
       # Ensure it's present
-      response = SolidusMailchimpSync::Mailchimp.ecommerce_request(:get, "/customers/#{SolidusMailchimpSync::UserSynchronizer.customer_id(user)}")
+      response = SolidusMailchimpSync::Mailchimp.ecommerce_request(
+        :get,
+        "/customers/#{SolidusMailchimpSync::UserSynchronizer.customer_id(user)}"
+      )
     end
 
-    it "syncs" do
+    it 'syncs' do
       response = syncer.sync
-      expect(response["id"]).to eq(SolidusMailchimpSync::UserSynchronizer.customer_id(user))
-      expect(response["email_address"]).to eq(user.email)
+      expect(response['id']).to eq(SolidusMailchimpSync::UserSynchronizer.customer_id(user))
+      expect(response['email_address']).to eq(user.email)
     end
 
-    describe "email address changes" do
+    describe 'email address changes' do
       before do
         @previous_id = syncer.mailchimp_id
         user.email = 'new-test-user-synchronizer@friendsoftheweb.com'

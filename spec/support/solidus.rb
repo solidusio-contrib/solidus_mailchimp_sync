@@ -14,7 +14,7 @@ RSpec.configure do |config|
   config.include Spree::TestingSupport::Flash
   config.include Spree::BaseHelper
 
-  config.before(:each) do
+  config.before do
     ActiveStorage::Current.url_options = { host: 'https://www.example.com' }
   end
 end
