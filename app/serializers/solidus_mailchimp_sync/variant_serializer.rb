@@ -1,5 +1,8 @@
+# frozen_string_literal: true
+
 require 'json'
 
+# rubocop:disable Rails/Delegate
 module SolidusMailchimpSync
   class VariantSerializer
     attr_reader :variant
@@ -57,6 +60,6 @@ module SolidusMailchimpSync
     def product_serializer
       ::SolidusMailchimpSync::ProductSynchronizer.serializer_class_name.constantize.new(variant.product)
     end
-
   end
 end
+# rubocop:enable Rails/Delegate

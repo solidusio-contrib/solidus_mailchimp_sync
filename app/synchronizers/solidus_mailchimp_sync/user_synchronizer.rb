@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'cgi'
 
 module SolidusMailchimpSync
@@ -16,10 +18,10 @@ module SolidusMailchimpSync
         return nil
       end
 
-      if model.deleted?
-        delete
-      else
+      if model.persisted?
         put
+      else
+        delete
       end
     end
 
@@ -36,9 +38,8 @@ module SolidusMailchimpSync
     # '@' sign in ID seems to maybe confuse mailchimp.
     def self.customer_id(user)
       email = user.send(email_address_attribute)
-      email = email && email.gsub("@", "-at-")
+      email = email&.gsub('@', '-at-')
       "#{user.id}-#{email}"
     end
-
   end
 end

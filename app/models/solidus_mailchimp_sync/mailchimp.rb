@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'json'
 require 'http'
 require 'solidus_mailchimp_sync'
@@ -9,17 +11,19 @@ module SolidusMailchimpSync
     # If Mailchimp errors, will normally raise a SolidusMailchimpSync::Error, but
     # set `return_errors: true` to return the Error as return value instead.
     def self.request(method, path, body: nil, return_errors: false)
-      return unless SolidusMailchimpSync.enabled
+      return unless SolidusMailchimpSync::Config.enabled
 
-      if SolidusMailchimpSync.api_key.blank?
-        raise ArgumentError, "Missing required configuration `SolidusMailchimpSync.api_key`"
+      if SolidusMailchimpSync::Config.api_key.blank?
+        raise ArgumentError, "Missing required configuration `SolidusMailchimpSync::Config.api_key`"
       end
 
       url = url(path)
       args = [method.to_sym, url]
       args << { json: body } if body
-      response = HTTP.basic_auth(user: AUTH_USER, pass: SolidusMailchimpSync.api_key).
-                      request(*args)
+      response = HTTP.basic_auth(
+        user: AUTH_USER,
+        pass: SolidusMailchimpSync::Config.api_key
+      ).request(*args)
 
       response_hash = response.body.present? ? JSON.parse(response.body.to_s) : { status: response.code }
 
@@ -41,28 +45,35 @@ module SolidusMailchimpSync
 
       response_hash
     rescue JSON::ParserError => e
-      return Error.new(request_method: method, request_url: url, request_body: body,
-                      status: response.status, detail: "JSON::ParserError #{e}",
-                      response_body: response.body.to_s).tap { |error| raise error unless return_errors }
+      Error.new(
+        request_method: method,
+        request_url: url,
+        request_body: body,
+        status: response.status,
+        detail: "JSON::ParserError #{e}",
+        response_body: response.body.to_s
+      ).tap do |error|
+        raise error unless return_errors
+      end
     end
 
     # Assumes an ECommerce request to our store, prefixes path argument with
-    # `/ecommerce/store/#{SolidusMailchimpSync.store_id}/`
-    def self.ecommerce_request(method, path, body: nil, store_id: SolidusMailchimpSync.store_id, return_errors: false)
+    # `/ecommerce/store/#{SolidusMailchimpSync::Config.store_id}/`
+    def self.ecommerce_request(method, path, body: nil, store_id: SolidusMailchimpSync::Config.store_id, return_errors: false)
       if store_id.blank?
-        raise ArgumentError, "Missing required configuration `SolidusMailchimpSync.store_id`"
+        raise ArgumentError, "Missing required configuration `SolidusMailchimpSync::Config.store_id`"
       end
 
-      path = "/ecommerce/stores/#{store_id}/" + path.sub(%r{\A/}, '')
+      path = "/ecommerce/stores/#{store_id}/" + path.delete_prefix('/')
       request(method, path, body: body, return_errors: return_errors)
     end
 
     def self.base_url
-      "https://#{SolidusMailchimpSync.data_center}.api.mailchimp.com/3.0/"
+      "https://#{SolidusMailchimpSync::Config.data_center}.api.mailchimp.com/3.0/"
     end
 
     def self.url(path)
-      base_url + path.sub(%r{\A/}, '')
+      base_url + path.delete_prefix('/')
     end
   end
 end

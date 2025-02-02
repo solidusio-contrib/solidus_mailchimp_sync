@@ -1,19 +1,25 @@
+# frozen_string_literal: true
+
 namespace :solidus_mailchimp_sync do
   desc "Create a Mailchimp Store. ENV LIST_ID param is required"
   task create_mailchimp_store: :environment do
-    unless ENV["LIST_ID"].present?
+    if ENV['LIST_ID'].blank?
       raise ArgumentError, "LIST_ID env arg is required. Your mailchimp Listserv ID."
     end
 
-    response = SolidusMailchimpSync::Mailchimp.request(:post, "/ecommerce/stores", body: {
-      list_id: ENV["LIST_ID"],
-      id: ENV["NEW_STORE_ID"] || (Spree::Store.default.name || "solidus").parameterize,
-      name: Spree::Store.default.name || "Solidus",
-      currency_code: Spree::Store.default.default_currency || 'USD'
-    })
-    store_id = response["id"]
+    response = SolidusMailchimpSync::Mailchimp.request(
+      :post,
+      '/ecommerce/stores',
+      body: {
+        list_id: ENV['LIST_ID'],
+        id: ENV['NEW_STORE_ID'] || (Spree::Store.default.name || 'solidus').parameterize,
+        name: Spree::Store.default.name || 'Solidus',
+        currency_code: Spree::Store.default.default_currency || 'USD'
+      }
+    )
+    store_id = response['id']
 
-    raise TypeError, "Unexpected response from Mailchimp, can't find created store id" unless store_id.present?
+    raise TypeError, "Unexpected response from Mailchimp, can't find created store id" if store_id.blank?
 
     puts "\nNew Mailchimp Store created with id: `#{store_id}`"
     puts
@@ -24,7 +30,7 @@ namespace :solidus_mailchimp_sync do
   end
 
   desc "sync ALL data to mailchimp"
-  task :bulk_sync => :environment do
+  task bulk_sync: :environment do
     require 'ruby-progressbar'
 
     progress_format = '%t %c of %C |%B| %e'
@@ -57,10 +63,12 @@ namespace :solidus_mailchimp_sync do
 
     order_count = Spree::Order.complete.count
     progress_bar = ProgressBar.create(total: order_count, format: progress_format, title: "Completed Spree::Orders")
+
     Spree::Order.complete.find_each do |order|
       SolidusMailchimpSync::OrderSynchronizer.new(order).sync
       progress_bar.increment
     end
+
     progress_bar.finish
   end
 end

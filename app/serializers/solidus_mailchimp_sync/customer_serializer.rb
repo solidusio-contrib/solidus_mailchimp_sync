@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'json'
 
 module SolidusMailchimpSync
@@ -29,6 +31,5 @@ module SolidusMailchimpSync
     def to_json
       JSON.dump(as_json)
     end
-
   end
 end

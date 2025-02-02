@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module SolidusMailchimpSync
   class VariantSynchronizer < BaseSynchronizer
     self.serializer_class_name = '::SolidusMailchimpSync::VariantSerializer'
@@ -7,7 +9,7 @@ module SolidusMailchimpSync
     def sync
       put
     rescue SolidusMailchimpSync::Error => e
-      tries ||= 0 ; tries += 1
+      tries ||= 0; tries += 1
       if tries <= 1 && e.status == 400 && e.title == 'Parent Product Does Not Exist'
         ProductSynchronizer.new(model.product).sync
         retry

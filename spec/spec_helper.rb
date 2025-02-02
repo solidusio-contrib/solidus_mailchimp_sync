@@ -1,29 +1,35 @@
+# frozen_string_literal: true
+
+# Configure Rails Environment
 ENV['RAILS_ENV'] = 'test'
 
-require File.expand_path('../dummy/config/environment.rb', __FILE__)
-abort('The Rails environment is running in production mode!') if Rails.env.production?
+# Run Coverage report
+require 'solidus_dev_support/rspec/coverage'
 
-require 'rspec/rails'
+# Create the dummy app if it's still missing.
+dummy_env = "#{__dir__}/dummy/config/environment.rb"
+system 'bin/rake extension:test_app' unless File.exist? dummy_env
+require dummy_env
 
-Dir[File.join(File.dirname(__FILE__), 'support/**/*.rb')].each { |f| require f }
+# Requires factories and other useful helpers defined in spree_core.
+require 'solidus_dev_support/rspec/feature_helper'
 
-begin
-  ActiveRecord::Migration.maintain_test_schema!
-rescue ActiveRecord::PendingMigrationError
-  `bin/rails db:migrate`
-end
+# Requires supporting ruby files with custom matchers and macros, etc,
+# in spec/support/ and its subdirectories.
+Dir["#{__dir__}/support/**/*.rb"].sort.each { |f| require f }
 
-# Requires factories defined in lib/solidus_mailchimp_sync/factories.rb
-require 'solidus_mailchimp_sync/factories'
-
-RSpec.configure do |config|
-  config.fixture_path = "#{::Rails.root}/spec/fixtures"
-  config.use_transactional_fixtures = false
-  config.infer_spec_type_from_file_location!
-  config.filter_rails_from_backtrace!
-  config.fail_fast = ENV['FAIL_FAST'] || false
-  config.order = 'random'
-end
+# Requires factories defined in lib/solidus_feeds/testing_support/factories.rb
+SolidusDevSupport::TestingSupport::Factories.load_for(SolidusMailchimpSync::Engine)
 
 Rails.application.routes.default_url_options[:host] = 'www.example.com'
-SolidusMailchimpSync.auto_sync_enabled = false
+
+SolidusMailchimpSync::Config.auto_sync_enabled = false
+
+RSpec.configure do |config|
+  config.infer_spec_type_from_file_location!
+  config.use_transactional_fixtures = false
+
+  if Spree.solidus_gem_version < Gem::Version.new('2.11')
+    config.extend Spree::TestingSupport::AuthorizationHelpers::Request, type: :system
+  end
+end
