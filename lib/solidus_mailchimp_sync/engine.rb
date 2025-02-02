@@ -1,9 +1,14 @@
 # frozen_string_literal: true
 
+require 'spree/core'
+require 'solidus_mailchimp_sync'
+
 module SolidusMailchimpSync
   class Engine < Rails::Engine
-    require 'spree/core'
-    isolate_namespace Spree
+    include SolidusSupport::EngineExtensions
+
+    isolate_namespace SolidusMailchimpSync
+
     engine_name 'solidus_mailchimp_sync'
 
     # use rspec for tests
