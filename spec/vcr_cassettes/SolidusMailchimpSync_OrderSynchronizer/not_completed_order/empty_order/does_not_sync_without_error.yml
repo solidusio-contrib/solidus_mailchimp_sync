@@ -40,7 +40,6 @@ http_interactions:
       encoding: UTF-8
       string: '{"type":"http://developer.mailchimp.com/documentation/mailchimp/guides/error-glossary/","title":"Resource
         Not Found","status":404,"detail":"The requested resource could not be found.","instance":""}'
-    http_version: 
   recorded_at: Fri, 05 Aug 2016 15:48:04 GMT
 - request:
     method: put
@@ -86,7 +85,6 @@ http_interactions:
     body:
       encoding: UTF-8
       string: '{"id":"1-test-order-synchronizer-at-friendsoftheweb.org","email_address":"test-order-synchronizer@friendsoftheweb.org","opt_in_status":false,"company":"","first_name":"","last_name":"","orders_count":0,"total_spent":0,"address":{"address1":"","address2":"","city":"","province":"","province_code":"","postal_code":"","country":"","country_code":""},"created_at":"2016-08-05T15:48:04+00:00","updated_at":"2016-08-05T15:48:04+00:00","_links":[{"rel":"self","href":"https://us1.api.mailchimp.com/3.0/ecommerce/stores/dummy-store-id/customers/1-test-order-synchronizer-at-friendsoftheweb.org","method":"GET","targetSchema":"https://us1.api.mailchimp.com/schema/3.0/Ecommerce/Stores/Customers/Instance.json"},{"rel":"parent","href":"https://us1.api.mailchimp.com/3.0/ecommerce/stores/dummy-store-id/customers","method":"GET","targetSchema":"https://us1.api.mailchimp.com/schema/3.0/Ecommerce/Stores/Customers/Collection.json"},{"rel":"update","href":"https://us1.api.mailchimp.com/3.0/ecommerce/stores/dummy-store-id/customers/1-test-order-synchronizer-at-friendsoftheweb.org","method":"PATCH","schema":"https://us1.api.mailchimp.com/schema/3.0/Ecommerce/Stores/Customers/Instance.json"},{"rel":"upsert","href":"https://us1.api.mailchimp.com/3.0/ecommerce/stores/dummy-store-id/customers/1-test-order-synchronizer-at-friendsoftheweb.org","method":"PUT","schema":"https://us1.api.mailchimp.com/schema/3.0/Ecommerce/Stores/Customers/Instance.json"},{"rel":"delete","href":"https://us1.api.mailchimp.com/3.0/ecommerce/stores/dummy-store-id/customers/1-test-order-synchronizer-at-friendsoftheweb.org","method":"DELETE"}]}'
-    http_version: 
   recorded_at: Fri, 05 Aug 2016 15:48:04 GMT
 - request:
     method: delete
@@ -128,7 +126,6 @@ http_interactions:
       encoding: UTF-8
       string: '{"type":"http://developer.mailchimp.com/documentation/mailchimp/guides/error-glossary/","title":"Resource
         Not Found","status":404,"detail":"The requested resource could not be found.","instance":""}'
-    http_version: 
   recorded_at: Fri, 05 Aug 2016 15:48:07 GMT
 - request:
     method: delete
@@ -170,7 +167,6 @@ http_interactions:
       encoding: UTF-8
       string: '{"type":"http://developer.mailchimp.com/documentation/mailchimp/guides/error-glossary/","title":"Resource
         Not Found","status":404,"detail":"The requested resource could not be found.","instance":""}'
-    http_version: 
   recorded_at: Fri, 05 Aug 2016 15:48:07 GMT
 - request:
     method: delete
@@ -212,7 +208,6 @@ http_interactions:
       encoding: UTF-8
       string: '{"type":"http://developer.mailchimp.com/documentation/mailchimp/guides/error-glossary/","title":"Resource
         Not Found","status":404,"detail":"The requested resource could not be found.","instance":""}'
-    http_version: 
   recorded_at: Fri, 05 Aug 2016 15:48:07 GMT
 - request:
     method: delete
@@ -241,7 +236,7 @@ http_interactions:
       Content-Length:
       - '0'
       X-Request-Id:
-      - 082c3138-70fc-4ec7-9e6d-72a7d5fcf143
+      - '082c3138-70fc-4ec7-9e6d-72a7d5fcf143'
       Date:
       - Fri, 05 Aug 2016 15:48:07 GMT
       Connection:
@@ -251,6 +246,113 @@ http_interactions:
     body:
       encoding: UTF-8
       string: ''
-    http_version: 
   recorded_at: Fri, 05 Aug 2016 15:48:07 GMT
-recorded_with: VCR 3.0.3
+- request:
+    method: delete
+    uri: https://us1.api.mailchimp.com/3.0//ecommerce/stores/dummy-store-id//carts/1
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Authorization:
+      - Basic <OMITTED AUTH HEADER>
+      Connection:
+      - close
+      Host:
+      - us1.api.mailchimp.com
+      User-Agent:
+      - http.rb/2.2.2
+  response:
+    status:
+      code: 403
+      message: Forbidden
+    headers:
+      Content-Type:
+      - application/problem+json; charset=utf-8
+      X-Spanid:
+      - 6a5396aa-4f9f-8faf-5fbd-4020ea6f01b3
+      X-Amzn-Trace-Id:
+      - Root=1-679ecc6f-5a96131e602c7ca84b980316
+      Link:
+      - <https://us1.api.mailchimp.com/schema/3.0/Definitions/ProblemDetailDocument.json>;
+        rel="describedBy"
+      Server:
+      - istio-envoy
+      Vary:
+      - Accept-Encoding
+      X-Envoy-Upstream-Service-Time:
+      - '87'
+      X-Envoy-Decorator-Operation:
+      - http-interposer-desired-service.mailchimp-cloud-httpinterposer-use2-prd-m2.svc.cluster.local:8090/*
+      Strict-Transport-Security:
+      - max-age=31536000
+      Intuit-Tid:
+      - 1-679ecc6f-5a96131e602c7ca84b980316
+      X-Request-Id:
+      - 1-679ecc6f-5a96131e602c7ca84b980316
+      Date:
+      - Sun, 02 Feb 2025 01:37:51 GMT
+      Connection:
+      - close
+      Akamai-Grn:
+      - 0.c8784017.1738460271.2eb9f2d
+    body:
+      encoding: UTF-8
+      string: '{"type":"https://mailchimp.com/developer/marketing/docs/errors/","title":"Forbidden","status":403,"detail":"The
+        API key provided is linked to datacenter ''api''","instance":"bc100906-d763-3deb-5518-3faa23aee6de"}'
+  recorded_at: Sun, 02 Feb 2025 01:37:51 GMT
+- request:
+    method: delete
+    uri: https://us1.api.mailchimp.com/3.0//ecommerce/stores/dummy-store-id//carts/1
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Authorization:
+      - Basic <OMITTED AUTH HEADER>
+      Connection:
+      - close
+      Host:
+      - us1.api.mailchimp.com
+      User-Agent:
+      - http.rb/2.2.2
+  response:
+    status:
+      code: 403
+      message: Forbidden
+    headers:
+      Content-Type:
+      - application/problem+json; charset=utf-8
+      X-Spanid:
+      - 99126e08-1f28-9267-170c-200927e83a92
+      X-Amzn-Trace-Id:
+      - Root=1-679ecc70-0084ecee34882ff7638ea5d9
+      Link:
+      - <https://us1.api.mailchimp.com/schema/3.0/Definitions/ProblemDetailDocument.json>;
+        rel="describedBy"
+      Server:
+      - istio-envoy
+      Vary:
+      - Accept-Encoding
+      X-Envoy-Upstream-Service-Time:
+      - '95'
+      X-Envoy-Decorator-Operation:
+      - http-interposer-desired-service.mailchimp-cloud-httpinterposer-use2-prd-m2.svc.cluster.local:8090/*
+      Strict-Transport-Security:
+      - max-age=31536000
+      Intuit-Tid:
+      - 1-679ecc70-0084ecee34882ff7638ea5d9
+      X-Request-Id:
+      - 1-679ecc70-0084ecee34882ff7638ea5d9
+      Date:
+      - Sun, 02 Feb 2025 01:37:52 GMT
+      Connection:
+      - close
+      Akamai-Grn:
+      - 0.c8784017.1738460272.2eba08b
+    body:
+      encoding: UTF-8
+      string: '{"type":"https://mailchimp.com/developer/marketing/docs/errors/","title":"Forbidden","status":403,"detail":"The
+        API key provided is linked to datacenter ''api''","instance":"1a763098-9a57-77fe-bb2f-4fcf122f5071"}'
+  recorded_at: Sun, 02 Feb 2025 01:37:52 GMT
+recorded_with: VCR 6.3.1

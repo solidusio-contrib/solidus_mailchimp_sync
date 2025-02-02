@@ -31,7 +31,7 @@ http_interactions:
       Vary:
       - Accept-Encoding
       X-Request-Id:
-      - 09f2990c-45ec-4c64-bd50-30e6d6b69431
+      - '09f2990c-45ec-4c64-bd50-30e6d6b69431'
       Link:
       - <https://us1.api.mailchimp.com/schema/3.0/Ecommerce/Stores/Products/Variants/Instance.json>;
         rel="describedBy"
@@ -44,7 +44,6 @@ http_interactions:
     body:
       encoding: UTF-8
       string: '{"id":"1","title":"Product #14 - 1551","url":"http://www.example.com/products/product-14-1551","sku":"SKU-22","price":19.99,"inventory_quantity":0,"image_url":"","backorders":"","visibility":"true","created_at":"2016-08-05T15:47:28+00:00","updated_at":"2016-08-05T15:47:43+00:00","_links":[{"rel":"self","href":"https://us1.api.mailchimp.com/3.0/ecommerce/stores/dummy-store-id/products/1/variants/1","method":"GET","targetSchema":"https://us1.api.mailchimp.com/schema/3.0/Ecommerce/Stores/Products/Variants/Instance.json"},{"rel":"parent","href":"https://us1.api.mailchimp.com/3.0/ecommerce/stores/dummy-store-id/products/1","method":"GET","targetSchema":"https://us1.api.mailchimp.com/schema/3.0/Ecommerce/Stores/Products/Collection.json"},{"rel":"update","href":"https://us1.api.mailchimp.com/3.0/ecommerce/stores/dummy-store-id/products/1/variants/1","method":"PATCH","schema":"https://us1.api.mailchimp.com/schema/3.0/Ecommerce/Stores/Products/Variants/Instance.json"},{"rel":"upsert","href":"https://us1.api.mailchimp.com/3.0/ecommerce/stores/dummy-store-id/products/1/variants/1","method":"PUT","schema":"https://us1.api.mailchimp.com/schema/3.0/Ecommerce/Stores/Products/Variants/Instance.json"},{"rel":"delete","href":"https://us1.api.mailchimp.com/3.0/ecommerce/stores/dummy-store-id/products/1/variants/1","method":"DELETE"}]}'
-    http_version: 
   recorded_at: Fri, 05 Aug 2016 15:47:43 GMT
 - request:
     method: delete
@@ -86,7 +85,6 @@ http_interactions:
       encoding: UTF-8
       string: '{"type":"http://developer.mailchimp.com/documentation/mailchimp/guides/error-glossary/","title":"Resource
         Not Found","status":404,"detail":"The requested resource could not be found.","instance":""}'
-    http_version: 
   recorded_at: Fri, 05 Aug 2016 15:47:43 GMT
 - request:
     method: delete
@@ -128,6 +126,115 @@ http_interactions:
       encoding: UTF-8
       string: '{"type":"http://developer.mailchimp.com/documentation/mailchimp/guides/error-glossary/","title":"Resource
         Not Found","status":404,"detail":"The requested resource could not be found.","instance":""}'
-    http_version: 
   recorded_at: Fri, 05 Aug 2016 15:47:44 GMT
-recorded_with: VCR 3.0.3
+- request:
+    method: put
+    uri: https://us1.api.mailchimp.com/3.0//ecommerce/stores/dummy-store-id//products/1/variants/1
+    body:
+      encoding: UTF-8
+      string: '{"id":"1","title":"Product #10 - 7268","sku":"SKU-11","price":19.99,"visibility":"true"}'
+    headers:
+      Authorization:
+      - Basic <OMITTED AUTH HEADER>
+      Connection:
+      - close
+      Content-Type:
+      - application/json; charset=UTF-8
+      Host:
+      - us1.api.mailchimp.com
+      User-Agent:
+      - http.rb/2.2.2
+  response:
+    status:
+      code: 403
+      message: Forbidden
+    headers:
+      Content-Type:
+      - application/problem+json; charset=utf-8
+      X-Spanid:
+      - 56acf957-1785-ffcd-f0af-78abcc53c135
+      X-Amzn-Trace-Id:
+      - Root=1-679ecc97-66dbca8d578455e663562ddd
+      Link:
+      - <https://us1.api.mailchimp.com/schema/3.0/Definitions/ProblemDetailDocument.json>;
+        rel="describedBy"
+      Server:
+      - istio-envoy
+      Vary:
+      - Accept-Encoding
+      X-Envoy-Upstream-Service-Time:
+      - '112'
+      X-Envoy-Decorator-Operation:
+      - http-interposer-desired-service.mailchimp-cloud-httpinterposer-use2-prd-m2.svc.cluster.local:8090/*
+      Strict-Transport-Security:
+      - max-age=31536000
+      Intuit-Tid:
+      - 1-679ecc97-66dbca8d578455e663562ddd
+      X-Request-Id:
+      - 1-679ecc97-66dbca8d578455e663562ddd
+      Date:
+      - Sun, 02 Feb 2025 01:38:31 GMT
+      Connection:
+      - close
+      Akamai-Grn:
+      - 0.c8784017.1738460311.2ebde02
+    body:
+      encoding: UTF-8
+      string: '{"type":"https://mailchimp.com/developer/marketing/docs/errors/","title":"Forbidden","status":403,"detail":"The
+        API key provided is linked to datacenter ''api''","instance":"b56df722-b7d7-a343-63d9-03f057dd29b6"}'
+  recorded_at: Sun, 02 Feb 2025 01:38:31 GMT
+- request:
+    method: delete
+    uri: https://us1.api.mailchimp.com/3.0//ecommerce/stores/dummy-store-id//carts/1
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Authorization:
+      - Basic <OMITTED AUTH HEADER>
+      Connection:
+      - close
+      Host:
+      - us1.api.mailchimp.com
+      User-Agent:
+      - http.rb/2.2.2
+  response:
+    status:
+      code: 403
+      message: Forbidden
+    headers:
+      Content-Type:
+      - application/problem+json; charset=utf-8
+      X-Spanid:
+      - 446cb634-d00f-fe9a-a149-33e452ff9f45
+      X-Amzn-Trace-Id:
+      - Root=1-679ecc98-707ee8614bb1deb64aa8bf44
+      Link:
+      - <https://us1.api.mailchimp.com/schema/3.0/Definitions/ProblemDetailDocument.json>;
+        rel="describedBy"
+      Server:
+      - istio-envoy
+      Vary:
+      - Accept-Encoding
+      X-Envoy-Upstream-Service-Time:
+      - '97'
+      X-Envoy-Decorator-Operation:
+      - http-interposer-desired-service.mailchimp-cloud-httpinterposer-use2-prd-m2.svc.cluster.local:8090/*
+      Strict-Transport-Security:
+      - max-age=31536000
+      Intuit-Tid:
+      - 1-679ecc98-707ee8614bb1deb64aa8bf44
+      X-Request-Id:
+      - 1-679ecc98-707ee8614bb1deb64aa8bf44
+      Date:
+      - Sun, 02 Feb 2025 01:38:32 GMT
+      Connection:
+      - close
+      Akamai-Grn:
+      - 0.c8784017.1738460312.2ebdf09
+    body:
+      encoding: UTF-8
+      string: '{"type":"https://mailchimp.com/developer/marketing/docs/errors/","title":"Forbidden","status":403,"detail":"The
+        API key provided is linked to datacenter ''api''","instance":"f76dfd0c-8fb8-f979-c347-af37fd93e251"}'
+  recorded_at: Sun, 02 Feb 2025 01:38:32 GMT
+recorded_with: VCR 6.3.1

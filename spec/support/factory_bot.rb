@@ -8,11 +8,3 @@
 # RSpec.configure do |config|
 #   config.include FactoryBot::Syntax::Methods
 # end
-
-
-# require 'ffaker'
-require 'factory_bot'
-
-RSpec.configure do |config|
-  config.include FactoryBot::Syntax::Methods
-end

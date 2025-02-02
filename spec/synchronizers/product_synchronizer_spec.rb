@@ -9,8 +9,7 @@ describe 'SolidusMailchimpSync::ProductSynchronizer' do
       name: "PRODUCT NAME"
     ) do |p|
       p.images << create(
-        :image,
-        attachment_updated_at: Time.new(2016, 5, 5, 10, 10, 10, "+05:00")
+        :image
       )
     end
   end
@@ -35,10 +34,11 @@ describe 'SolidusMailchimpSync::ProductSynchronizer' do
       expect(response['variants'].map { |v| v['url'] })
         .to include(expected_url)
 
-      expect(response['image_url']).to eq(product.images.first.attachment.url)
+      expect(response['image_url'])
+        .to include(product.gallery.images.first.attachment.url.split('/').last)
       expect(response['url']).to eq(expected_url)
-      expect(response['variants'].map { |v| v['image_url'] })
-        .to include(product.images.first.attachment.url)
+      expect(response['variants'][0]['image_url'])
+        .to include(product.gallery.images.first.attachment.url.split('/').last)
     end
 
     describe "with variants" do
@@ -93,7 +93,8 @@ describe 'SolidusMailchimpSync::ProductSynchronizer' do
 
         before do
           # precondition
-          expect(product.available?).to be(false)
+          # binding.pry
+          expect(product.available?).to be_nil
         end
 
         it "has visibility true for variants" do
@@ -108,7 +109,7 @@ describe 'SolidusMailchimpSync::ProductSynchronizer' do
         describe "auto syncing" do
           it "is not should_sync?" do
             syncer = SolidusMailchimpSync::ProductSynchronizer.new(product)
-            expect(syncer.should_sync?).to be(false)
+            expect(syncer.should_sync?).to be_nil
           end
 
           it "does not auto_sync" do

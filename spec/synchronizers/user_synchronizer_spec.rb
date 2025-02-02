@@ -42,9 +42,8 @@ describe 'SolidusMailchimpSync::UserSynchronizer', vcr: true do
     end
 
     describe "email address changes" do
-      let(:previous_id) { syncer.mailchimp_id }
-
       before do
+        @previous_id = syncer.mailchimp_id
         user.email = 'new-test-user-synchronizer@friendsoftheweb.com'
         user.save!
       end
@@ -57,7 +56,7 @@ describe 'SolidusMailchimpSync::UserSynchronizer', vcr: true do
 
         # It will have a new ID, it's a different mailchimp record, and we
         # don't currently have anything to delete the old one.
-        expect(response['id']).not_to eq(previous_id)
+        expect(response['id']).not_to eq(@previous_id)
       end
     end
   end
