@@ -48,7 +48,7 @@ module SolidusMailchimpSync
 
     # Override in custom serializer if you want to choose which image different than `first`
     def image_url
-      variant.images.first.try(:attachment).try(:url) || product_serializer.image_url
+      variant.gallery.images.first.try(:attachment).try(:url) || product_serializer.image_url
     end
 
     # Override for custom visibility. Mailchimp wants a string for some reason,
