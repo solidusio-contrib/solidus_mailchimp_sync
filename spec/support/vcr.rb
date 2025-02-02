@@ -21,8 +21,8 @@ VCR.configure do |config|
 
   # Filter store_id and api key, and set them to defaults so code won't complain about missing
   # arguments.
-  SolidusMailchimpSync::Config.store_id ||= 'eb4d0f9784'
-  SolidusMailchimpSync::Config.api_key ||= '78749fe6f9af9033b5171dd34469299a-us7'
+  SolidusMailchimpSync::Config.store_id ||= 'dummy-store-id'
+  SolidusMailchimpSync::Config.api_key ||= 'dummy-api-key-us1'
   config.filter_sensitive_data('dummy-store-id') { SolidusMailchimpSync::Config.store_id }
   config.filter_sensitive_data('dummy-api-key') { SolidusMailchimpSync::Config.api_key }
   config.filter_sensitive_data('us1') { SolidusMailchimpSync::Config.data_center }
