@@ -29,11 +29,6 @@ jobs:
       - checkout
       - browser-tools/install-chrome
       - solidusio_extensions/run-tests-solidus-<< parameters.solidus >>
-      - run:
-          name: Install libvips
-          command: |
-            sudo apt-get update
-            sudo apt-get install -yq libvips-dev
 
   lint-code:
     executor:
