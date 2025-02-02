@@ -14,22 +14,27 @@ module SolidusMailchimpSync
                 :response_hash
 
     def initialize(
-      type:, title:, status:, detail:, instance:,
-      request_method:, request_url:, request_body:,
-      response_body:, response_hash:
+      type: nil,
+      title: nil,
+      status: nil,
+      detail: nil,
+      instance: nil,
+      request_method: nil,
+      request_url: nil,
+      request_body: nil,
+      response_body: nil,
+      response_hash: nil
     )
       @type = type
       @title = title
       @status = status
       @detail = detail
       @instance = instance
-
-      @request_method = request_method.to_s.upcase
       @request_url = request_url
       @request_body = request_body
-
       @response_body = response_body
       @response_hash = response_hash
+      @request_method = request_method.to_s.upcase
 
       super(constructed_message)
     end

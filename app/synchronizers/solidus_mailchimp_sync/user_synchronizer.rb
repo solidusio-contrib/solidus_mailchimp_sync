@@ -18,7 +18,7 @@ module SolidusMailchimpSync
         return nil
       end
 
-      if model.deleted?
+      unless model.persisted?
         delete
       else
         put
