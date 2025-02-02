@@ -2,7 +2,7 @@
 
 require 'spec_helper'
 
-RSpec.describe 'SolidusMailchimpSync::OrderSynchronizer', vcr: true do
+RSpec.describe 'SolidusMailchimpSync::OrderSynchronizer', vcr: true, record: :new_episodes do
   let(:user) do
     create(
       :user,
