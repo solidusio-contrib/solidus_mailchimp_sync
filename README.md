@@ -1,4 +1,4 @@
-[WIP]SolidusMailchimpSync
+[WIP] SolidusMailchimpSync
 
 
 > [!CAUTION]
