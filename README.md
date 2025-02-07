@@ -1,4 +1,9 @@
-SolidusMailchimpSync
+[WIP]SolidusMailchimpSync
+
+
+> [!CAUTION]
+> This extension is not production ready, work is in progress.
+
 ====================
 [![CircleCI](https://circleci.com/gh/solidusio-contrib/solidus_mailchimp_sync.svg?style=shield)](https://circleci.com/gh/solidusio-contrib/solidus_mailchimp_sync)
 
