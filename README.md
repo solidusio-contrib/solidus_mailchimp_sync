@@ -7,8 +7,6 @@
 ====================<br>
 [![CircleCI](https://circleci.com/gh/solidusio-contrib/solidus_mailchimp_sync.svg?style=shield)](https://circleci.com/gh/solidusio-contrib/solidus_mailchimp_sync)
 
-**WIP**
-
 Synchronizes Solidus data with [Mailchimp E-Commerce API](http://developer.mailchimp.com/documentation/mailchimp/guides/getting-started-with-ecommerce/). (Mailchimp API 3.0)
 
 This plugin does not do every kind of integration with Mailchimp that might be possible, it just focuses
