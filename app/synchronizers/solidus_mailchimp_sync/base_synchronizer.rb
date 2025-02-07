@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module SolidusMailchimpSync
   # Individual synchronizers will implement a #sync method, which will be run
   # under an ActiveJob so won't have access to previous state.
@@ -21,7 +23,7 @@ module SolidusMailchimpSync
     # Designed to be called in an after commit hook, syncs in bg, if
     # neccessary.
     def auto_sync(force: false)
-      if SolidusMailchimpSync.auto_sync_enabled && (force || should_sync?)
+      if SolidusMailchimpSync::Config.auto_sync_enabled && (force || should_sync?)
         SolidusMailchimpSync::SyncJob.perform_later(self.class.name, model)
       end
     end
@@ -46,12 +48,13 @@ module SolidusMailchimpSync
       Mailchimp.ecommerce_request(:put, arg_path, body: serializer.as_json)
     end
 
-    def delete(arg_path = path, return_errors: false, ignore_404: false)
+    def delete(arg_path = path, return_errors: false, ignore404: false)
       Mailchimp.ecommerce_request(:delete, arg_path, return_errors: return_errors)
     rescue SolidusMailchimpSync::Error => e
-      if ignore_404 && e.status == 404
+      if ignore404 && e.status == 404
         return nil
       end
+
       raise e
     end
 

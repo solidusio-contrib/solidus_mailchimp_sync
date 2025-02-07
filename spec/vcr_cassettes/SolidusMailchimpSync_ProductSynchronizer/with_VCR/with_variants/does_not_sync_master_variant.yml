@@ -40,7 +40,46 @@ http_interactions:
       encoding: UTF-8
       string: '{"type":"http://developer.mailchimp.com/documentation/mailchimp/guides/error-glossary/","title":"Resource
         Not Found","status":404,"detail":"The requested resource could not be found.","instance":""}'
-    http_version: 
+- request:
+    method: delete
+    uri: https://us1.api.mailchimp.com/3.0/ecommerce/stores/dummy-store-id/products/22
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Authorization:
+      - Basic <OMITTED AUTH HEADER>
+      Connection:
+      - close
+      Host:
+      - us1.api.mailchimp.com
+      User-Agent:
+      - http.rb/2.0.3
+  response:
+    status:
+      code: 404
+      message: Not Found
+    headers:
+      Server:
+      - nginx
+      Content-Type:
+      - application/problem+json; charset=utf-8
+      Content-Length:
+      - '198'
+      X-Request-Id:
+      - 46aa09a3-7a4e-4cbc-8160-c7c6e0d808a7
+      Link:
+      - <https://us1.api.mailchimp.com/schema/3.0/ProblemDetailDocument.json>; rel="describedBy"
+      Date:
+      - Fri, 05 Aug 2016 16:05:11 GMT
+      Connection:
+      - close
+      Set-Cookie:
+      - _AVESTA_ENVIRONMENT=prod; path=/
+    body:
+      encoding: UTF-8
+      string: '{"type":"http://developer.mailchimp.com/documentation/mailchimp/guides/error-glossary/","title":"Resource
+        Not Found","status":404,"detail":"The requested resource could not be found.","instance":""}'
   recorded_at: Fri, 05 Aug 2016 16:05:11 GMT
 - request:
     method: post
@@ -91,6 +130,5 @@ http_interactions:
         seen on TV!","type":"","vendor":"","image_url":"","variants":[{"id":"2","title":"PRODUCT
         NAME Size: S","url":"http://www.example.com/products/product-name","sku":"PROD_SYNC_SKU_0","price":19.99,"inventory_quantity":0,"image_url":"","backorders":"","visibility":"true","created_at":"2016-08-05T16:05:11+00:00","updated_at":"2016-08-05T16:05:11+00:00","_links":[{"rel":"self","href":"https://us1.api.mailchimp.com/3.0/ecommerce/stores/dummy-store-id/products/1/variants/2","method":"GET","targetSchema":"https://us1.api.mailchimp.com/schema/3.0/Ecommerce/Stores/Products/Variants/Instance.json"},{"rel":"parent","href":"https://us1.api.mailchimp.com/3.0/ecommerce/stores/dummy-store-id/products/1","method":"GET","targetSchema":"https://us1.api.mailchimp.com/schema/3.0/Ecommerce/Stores/Products/Collection.json"},{"rel":"update","href":"https://us1.api.mailchimp.com/3.0/ecommerce/stores/dummy-store-id/products/1/variants/2","method":"PATCH","schema":"https://us1.api.mailchimp.com/schema/3.0/Ecommerce/Stores/Products/Variants/Instance.json"},{"rel":"upsert","href":"https://us1.api.mailchimp.com/3.0/ecommerce/stores/dummy-store-id/products/1/variants/2","method":"PUT","schema":"https://us1.api.mailchimp.com/schema/3.0/Ecommerce/Stores/Products/Variants/Instance.json"},{"rel":"delete","href":"https://us1.api.mailchimp.com/3.0/ecommerce/stores/dummy-store-id/products/1/variants/2","method":"DELETE"}]},{"id":"3","title":"PRODUCT
         NAME Size: S","url":"http://www.example.com/products/product-name","sku":"PROD_SYNC_SKU_1","price":19.99,"inventory_quantity":0,"image_url":"","backorders":"","visibility":"true","created_at":"2016-08-05T16:05:11+00:00","updated_at":"2016-08-05T16:05:11+00:00","_links":[{"rel":"self","href":"https://us1.api.mailchimp.com/3.0/ecommerce/stores/dummy-store-id/products/1/variants/3","method":"GET","targetSchema":"https://us1.api.mailchimp.com/schema/3.0/Ecommerce/Stores/Products/Variants/Instance.json"},{"rel":"parent","href":"https://us1.api.mailchimp.com/3.0/ecommerce/stores/dummy-store-id/products/1","method":"GET","targetSchema":"https://us1.api.mailchimp.com/schema/3.0/Ecommerce/Stores/Products/Collection.json"},{"rel":"update","href":"https://us1.api.mailchimp.com/3.0/ecommerce/stores/dummy-store-id/products/1/variants/3","method":"PATCH","schema":"https://us1.api.mailchimp.com/schema/3.0/Ecommerce/Stores/Products/Variants/Instance.json"},{"rel":"upsert","href":"https://us1.api.mailchimp.com/3.0/ecommerce/stores/dummy-store-id/products/1/variants/3","method":"PUT","schema":"https://us1.api.mailchimp.com/schema/3.0/Ecommerce/Stores/Products/Variants/Instance.json"},{"rel":"delete","href":"https://us1.api.mailchimp.com/3.0/ecommerce/stores/dummy-store-id/products/1/variants/3","method":"DELETE"}]}],"published_at_foreign":"2015-08-05T16:05:11+00:00","_links":[{"rel":"self","href":"https://us1.api.mailchimp.com/3.0/ecommerce/stores/dummy-store-id/products/1","method":"GET","targetSchema":"https://us1.api.mailchimp.com/schema/3.0/Ecommerce/Stores/Products/Instance.json"},{"rel":"parent","href":"https://us1.api.mailchimp.com/3.0/ecommerce/stores/dummy-store-id/products","method":"GET","targetSchema":"https://us1.api.mailchimp.com/schema/3.0/Ecommerce/Stores/Products/Collection.json"},{"rel":"delete","href":"https://us1.api.mailchimp.com/3.0/ecommerce/stores/dummy-store-id/products/1","method":"DELETE"},{"rel":"variants","href":"https://us1.api.mailchimp.com/3.0/ecommerce/stores/dummy-store-id/products/1/variants","method":"GET","targetSchema":"https://us1.api.mailchimp.com/schema/3.0/Ecommerce/Stores/Products/Variants/Collection.json"}]}'
-    http_version: 
   recorded_at: Fri, 05 Aug 2016 16:05:11 GMT
-recorded_with: VCR 3.0.3
+recorded_with: VCR 6.3.1

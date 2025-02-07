@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module SolidusMailchimpSync
   # Syncs solidus orders to mailchimp Carts and Orders, adding/deleting
   # as cart status changes.
@@ -45,20 +47,19 @@ module SolidusMailchimpSync
       # Can't sync an empty cart to mailchimp, delete the cart/order if
       # we've previously synced, and bail out of this sync.
       if model.line_items.empty?
-        return delete(path, ignore_404: true)
+        return delete(path, ignore404: true)
       end
 
       # if it's a completed order, delete any previous synced _cart_ version
       # of this order, if one is present. There should be no Mailchimp 'cart',
       # only a mailchimp 'order' now.
-      #byebug
       if order_complete?
-        delete(cart_path, ignore_404: true)
+        delete(cart_path, ignore404: true)
       end
 
       post_or_patch(post_path: create_path, patch_path: path)
     rescue SolidusMailchimpSync::Error => e
-      tries ||= 0 ; tries += 1
+      tries ||= 0; tries += 1
       if tries <= 1 && user_not_synced_error?(e)
         SolidusMailchimpSync::UserSynchronizer.new(model.user).sync
         retry
@@ -76,17 +77,17 @@ module SolidusMailchimpSync
     def post_or_patch(post_path:, patch_path:)
       post(post_path)
     rescue SolidusMailchimpSync::Error => e
-      if e.status == 400 && e.detail =~ /already exists/
+      if e.status == 400 && e.detail.include?('already exists')
         patch(patch_path)
       else
         raise e
       end
     end
 
-    def user_not_synced_error?(e)
-      e.status == 400 &&
-        e.response_hash["errors"].present? &&
-        e.response_hash["errors"].any? { |h| %w{customer.email_address customer.opt_in_status}.include? h["field"] }
+    def user_not_synced_error?(error)
+      error.status == 400 &&
+        error.response_hash["errors"].present? &&
+        error.response_hash["errors"].any? { |h| %w{customer.email_address customer.opt_in_status}.include? h["field"] }
     end
 
     def cart_path

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module SolidusMailchimpSync
   class ProductSynchronizer < BaseSynchronizer
     self.serializer_class_name = '::SolidusMailchimpSync::ProductSerializer'
@@ -9,7 +11,7 @@ module SolidusMailchimpSync
     self.only_auto_sync_if = lambda { |p| p.available? }
 
     def should_sync?
-       only_auto_sync_if.call(model) && super
+      only_auto_sync_if.call(model) && super
     end
 
     def sync
@@ -17,7 +19,7 @@ module SolidusMailchimpSync
       # doesn't let us do an update, but we can update all variants.
       post
     rescue SolidusMailchimpSync::Error => e
-      if e.status == 400 && e.detail =~ /already exists/
+      if e.status == 400 && e.detail.include?('already exists')
         sync_all_variants
       else
         raise e

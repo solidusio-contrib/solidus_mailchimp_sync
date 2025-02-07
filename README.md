@@ -1,6 +1,6 @@
 SolidusMailchimpSync
 ====================
-[![Build Status](https://travis-ci.org/jtapia/solidus_mailchimp_sync.svg?branch=master)](https://travis-ci.org/jtapia/solidus_mailchimp_sync)
+[![CircleCI](https://circleci.com/gh/jtapia/solidus_mailchimp_sync.svg?style=shield)](https://circleci.com/gh/jtapia/solidus_mailchimp_sync)
 
 **WIP**
 
