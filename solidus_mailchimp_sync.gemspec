@@ -6,11 +6,11 @@ require 'solidus_mailchimp_sync/version'
 Gem::Specification.new do |s|
   s.name = 'solidus_mailchimp_sync'
   s.version = SolidusMailchimpSync::VERSION
-  s.summary = 'Solidus -> Mailchimp Ecommerce synchronization'
+  s.authors = ['Solidus Team']
+  s.email = 'contact@solidus.io'
 
-  s.author = 'Jonathan Rochkind, Friends of the Web'
-  s.email = 'shout@friendsoftheweb.com'
-  s.homepage = 'http://github.com/friendsoftheweb/solidus_mailchimp_sync'
+  s.summary = 'Solidus -> Mailchimp Ecommerce synchronization'
+  s.homepage = 'https://github.com/solidusio-contrib/solidus_mailchimp_sync'
   s.license = 'BSD-3-Clause'
 
   if s.respond_to?(:metadata)
