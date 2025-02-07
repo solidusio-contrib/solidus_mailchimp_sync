@@ -1,4 +1,4 @@
-Copyright (c) 2025 [Jonathan Tapia](https://github.com/jtapia)
+Copyright (c) 2025 [Jonathan Tapia](https://github.com/jtapia)<br>
 Copyright (c) 2016 Friends of the Web
 
 All rights reserved.
