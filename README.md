@@ -1,6 +1,6 @@
 SolidusMailchimpSync
 ====================
-[![CircleCI](https://circleci.com/gh/jtapia/solidus_mailchimp_sync.svg?style=shield)](https://circleci.com/gh/jtapia/solidus_mailchimp_sync)
+[![CircleCI](https://circleci.com/gh/solidusio-contrib/solidus_mailchimp_sync.svg?style=shield)](https://circleci.com/gh/solidusio-contrib/solidus_mailchimp_sync)
 
 **WIP**
 
