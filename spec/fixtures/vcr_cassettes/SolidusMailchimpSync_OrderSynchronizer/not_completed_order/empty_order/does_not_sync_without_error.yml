@@ -1,0 +1,328 @@
+---
+http_interactions:
+- request:
+    method: delete
+    uri: https://us1.api.mailchimp.com/3.0/ecommerce/stores/dummy-store-id/carts/1
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Authorization:
+      - Basic <OMITTED AUTH HEADER>
+      Connection:
+      - close
+      User-Agent:
+      - http.rb/2.2.2
+  response:
+    status:
+      code: 404
+      message: Not Found
+    headers:
+      Content-Type:
+      - application/problem+json; charset=utf-8
+      X-Spanid:
+      - d5e40107-e3e9-d7a0-9cf7-9c8754ab1e94
+      X-Amzn-Trace-Id:
+      - Root=1-67a904a8-527e30165b038b89682117c0
+      Link:
+      - <https://us1.api.mailchimp.com/schema/3.0/Definitions/ProblemDetailDocument.json>;
+        rel="describedBy"
+      Server:
+      - istio-envoy
+      Vary:
+      - Accept-Encoding
+      X-Envoy-Upstream-Service-Time:
+      - '172'
+      X-Envoy-Decorator-Operation:
+      - http-interposer-desired-service.mailchimp-cloud-httpinterposer-use2-prd-m2.svc.cluster.local:8090/*
+      Strict-Transport-Security:
+      - max-age=31536000
+      Intuit-Tid:
+      - 1-67a904a8-527e30165b038b89682117c0
+      X-Request-Id:
+      - 1-67a904a8-527e30165b038b89682117c0
+      Date:
+      - Sun, 09 Feb 2025 19:40:24 GMT
+      Content-Length:
+      - '211'
+      Connection:
+      - close
+      Akamai-Grn:
+      - 0.ee382f17.1739130023.a601739
+    body:
+      encoding: UTF-8
+      string: '{"type":"https://mailchimp.com/developer/marketing/docs/errors/","title":"Resource
+        Not Found","status":404,"detail":"The requested resource could not be found.","instance":"eef7d763-b4c4-f358-1fb3-b5b480bc167f"}'
+  recorded_at: Sun, 09 Feb 2025 19:40:24 GMT
+- request:
+    method: put
+    uri: https://us1.api.mailchimp.com/3.0/ecommerce/stores/dummy-store-id/customers/1-test-order-synchronizer-at-friendsoftheweb.org
+    body:
+      encoding: UTF-8
+      string: '{"id":"1-test-order-synchronizer-at-friendsoftheweb.org","email_address":"test-order-synchronizer@friendsoftheweb.org","opt_in_status":false}'
+    headers:
+      Authorization:
+      - Basic <OMITTED AUTH HEADER>
+      Connection:
+      - close
+      Content-Type:
+      - application/json; charset=UTF-8
+      User-Agent:
+      - http.rb/2.2.2
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json;charset=utf-8
+      X-Spanid:
+      - 57d0cc9e-3941-0f7e-0e4f-2914a97e7daf
+      X-Amzn-Trace-Id:
+      - Root=1-67a904a8-015ea84908cd69121feffce2
+      Link:
+      - <https://us1.api.mailchimp.com/schema/3.0/Ecommerce/Stores/Customers/Instance.json>;
+        rel="describedBy"
+      Server:
+      - istio-envoy
+      Vary:
+      - Accept-Encoding
+      X-Envoy-Upstream-Service-Time:
+      - '220'
+      X-Envoy-Decorator-Operation:
+      - http-interposer-desired-service.mailchimp-cloud-httpinterposer-use2-prd-m2.svc.cluster.local:8090/*
+      Strict-Transport-Security:
+      - max-age=31536000
+      Intuit-Tid:
+      - 1-67a904a8-015ea84908cd69121feffce2
+      X-Request-Id:
+      - 1-67a904a8-015ea84908cd69121feffce2
+      Date:
+      - Sun, 09 Feb 2025 19:40:24 GMT
+      Content-Length:
+      - '1899'
+      Connection:
+      - close
+      Akamai-Grn:
+      - 0.ee382f17.1739130024.a6018e9
+    body:
+      encoding: UTF-8
+      string: '{"id":"1-test-order-synchronizer-at-friendsoftheweb.org","email_address":"test-order-synchronizer@friendsoftheweb.org","sms_phone_number":"","opt_in_status":false,"company":"","first_name":"","last_name":"","orders_count":0,"total_spent":0,"address":{"address1":"","address2":"","city":"","province":"","province_code":"","postal_code":"","country":"","country_code":""},"created_at":"2025-02-09T19:40:24+00:00","updated_at":"2025-02-09T19:40:24+00:00","_links":[{"rel":"self","href":"https://us1.api.mailchimp.com/3.0/ecommerce/stores/dummy-store-id/customers/1-test-order-synchronizer-at-friendsoftheweb.org","method":"GET","targetSchema":"https://us1.api.mailchimp.com/schema/3.0/Definitions/Ecommerce/Stores/Customers/Response.json"},{"rel":"parent","href":"https://us1.api.mailchimp.com/3.0/ecommerce/stores/dummy-store-id/customers","method":"GET","targetSchema":"https://us1.api.mailchimp.com/schema/3.0/Definitions/Ecommerce/Stores/Customers/CollectionResponse.json"},{"rel":"update","href":"https://us1.api.mailchimp.com/3.0/ecommerce/stores/dummy-store-id/customers/1-test-order-synchronizer-at-friendsoftheweb.org","method":"PATCH","targetSchema":"https://us1.api.mailchimp.com/schema/3.0/Definitions/Ecommerce/Stores/Customers/Response.json","schema":"https://us1.api.mailchimp.com/schema/3.0/Definitions/Ecommerce/Stores/Customers/PATCH.json"},{"rel":"upsert","href":"https://us1.api.mailchimp.com/3.0/ecommerce/stores/dummy-store-id/customers/1-test-order-synchronizer-at-friendsoftheweb.org","method":"PUT","targetSchema":"https://us1.api.mailchimp.com/schema/3.0/Definitions/Ecommerce/Stores/Customers/Response.json","schema":"https://us1.api.mailchimp.com/schema/3.0/Definitions/Ecommerce/Stores/Customers/PUT.json"},{"rel":"delete","href":"https://us1.api.mailchimp.com/3.0/ecommerce/stores/dummy-store-id/customers/1-test-order-synchronizer-at-friendsoftheweb.org","method":"DELETE"}]}'
+  recorded_at: Sun, 09 Feb 2025 19:40:24 GMT
+- request:
+    method: delete
+    uri: https://us1.api.mailchimp.com/3.0/ecommerce/stores/dummy-store-id/carts/1
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Authorization:
+      - Basic <OMITTED AUTH HEADER>
+      Connection:
+      - close
+      User-Agent:
+      - http.rb/2.2.2
+  response:
+    status:
+      code: 404
+      message: Not Found
+    headers:
+      Content-Type:
+      - application/problem+json; charset=utf-8
+      X-Spanid:
+      - a0224791-854f-5057-8b6a-df719f81ab70
+      X-Amzn-Trace-Id:
+      - Root=1-67a904a9-3f0113fe6aff59cd2db15ff2
+      Link:
+      - <https://us1.api.mailchimp.com/schema/3.0/Definitions/ProblemDetailDocument.json>;
+        rel="describedBy"
+      Server:
+      - istio-envoy
+      Vary:
+      - Accept-Encoding
+      X-Envoy-Upstream-Service-Time:
+      - '191'
+      X-Envoy-Decorator-Operation:
+      - http-interposer-desired-service.mailchimp-cloud-httpinterposer-use2-prd-m2.svc.cluster.local:8090/*
+      Strict-Transport-Security:
+      - max-age=31536000
+      Intuit-Tid:
+      - 1-67a904a9-3f0113fe6aff59cd2db15ff2
+      X-Request-Id:
+      - 1-67a904a9-3f0113fe6aff59cd2db15ff2
+      Date:
+      - Sun, 09 Feb 2025 19:40:25 GMT
+      Content-Length:
+      - '211'
+      Connection:
+      - close
+      Akamai-Grn:
+      - 0.ee382f17.1739130025.a601ad1
+    body:
+      encoding: UTF-8
+      string: '{"type":"https://mailchimp.com/developer/marketing/docs/errors/","title":"Resource
+        Not Found","status":404,"detail":"The requested resource could not be found.","instance":"a872ba30-87b0-433b-36cf-4d046b6a70a1"}'
+  recorded_at: Sun, 09 Feb 2025 19:40:25 GMT
+- request:
+    method: delete
+    uri: https://us1.api.mailchimp.com/3.0/ecommerce/stores/dummy-store-id/carts/1
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Authorization:
+      - Basic <OMITTED AUTH HEADER>
+      Connection:
+      - close
+      User-Agent:
+      - http.rb/2.2.2
+  response:
+    status:
+      code: 404
+      message: Not Found
+    headers:
+      Content-Type:
+      - application/problem+json; charset=utf-8
+      X-Spanid:
+      - 1d4cdde6-9500-9286-8b89-0ba72434bf70
+      X-Amzn-Trace-Id:
+      - Root=1-67a904a9-5ff1ca3036e9fb4253cad862
+      Link:
+      - <https://us1.api.mailchimp.com/schema/3.0/Definitions/ProblemDetailDocument.json>;
+        rel="describedBy"
+      Server:
+      - istio-envoy
+      Vary:
+      - Accept-Encoding
+      X-Envoy-Upstream-Service-Time:
+      - '150'
+      X-Envoy-Decorator-Operation:
+      - http-interposer-desired-service.mailchimp-cloud-httpinterposer-use2-prd-m2.svc.cluster.local:8090/*
+      Strict-Transport-Security:
+      - max-age=31536000
+      Intuit-Tid:
+      - 1-67a904a9-5ff1ca3036e9fb4253cad862
+      X-Request-Id:
+      - 1-67a904a9-5ff1ca3036e9fb4253cad862
+      Date:
+      - Sun, 09 Feb 2025 19:40:25 GMT
+      Content-Length:
+      - '211'
+      Connection:
+      - close
+      Akamai-Grn:
+      - 0.ee382f17.1739130025.a601c83
+    body:
+      encoding: UTF-8
+      string: '{"type":"https://mailchimp.com/developer/marketing/docs/errors/","title":"Resource
+        Not Found","status":404,"detail":"The requested resource could not be found.","instance":"d0f98b99-8cfa-de0f-6266-4a5e6206d174"}'
+  recorded_at: Sun, 09 Feb 2025 19:40:25 GMT
+- request:
+    method: delete
+    uri: https://us1.api.mailchimp.com/3.0/ecommerce/stores/dummy-store-id/orders/1
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Authorization:
+      - Basic <OMITTED AUTH HEADER>
+      Connection:
+      - close
+      User-Agent:
+      - http.rb/2.2.2
+  response:
+    status:
+      code: 404
+      message: Not Found
+    headers:
+      Content-Type:
+      - application/problem+json; charset=utf-8
+      X-Spanid:
+      - 962eb7a6-0ba5-f25a-8195-bee826789d4a
+      X-Amzn-Trace-Id:
+      - Root=1-67a904aa-77e139a72aed3623182ff170
+      Link:
+      - <https://us1.api.mailchimp.com/schema/3.0/Definitions/ProblemDetailDocument.json>;
+        rel="describedBy"
+      Server:
+      - istio-envoy
+      Vary:
+      - Accept-Encoding
+      X-Envoy-Upstream-Service-Time:
+      - '150'
+      X-Envoy-Decorator-Operation:
+      - http-interposer-desired-service.mailchimp-cloud-httpinterposer-use2-prd-m2.svc.cluster.local:8090/*
+      Strict-Transport-Security:
+      - max-age=31536000
+      Intuit-Tid:
+      - 1-67a904aa-77e139a72aed3623182ff170
+      X-Request-Id:
+      - 1-67a904aa-77e139a72aed3623182ff170
+      Date:
+      - Sun, 09 Feb 2025 19:40:26 GMT
+      Content-Length:
+      - '211'
+      Connection:
+      - close
+      Akamai-Grn:
+      - 0.ee382f17.1739130026.a601e56
+    body:
+      encoding: UTF-8
+      string: '{"type":"https://mailchimp.com/developer/marketing/docs/errors/","title":"Resource
+        Not Found","status":404,"detail":"The requested resource could not be found.","instance":"c04d378b-3e2d-fc24-da6c-036630a237a4"}'
+  recorded_at: Sun, 09 Feb 2025 19:40:26 GMT
+- request:
+    method: delete
+    uri: https://us1.api.mailchimp.com/3.0/ecommerce/stores/dummy-store-id/customers/1-test-order-synchronizer-at-friendsoftheweb.org
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Authorization:
+      - Basic <OMITTED AUTH HEADER>
+      Connection:
+      - close
+      User-Agent:
+      - http.rb/2.2.2
+  response:
+    status:
+      code: 404
+      message: Not Found
+    headers:
+      Content-Type:
+      - application/problem+json; charset=utf-8
+      X-Spanid:
+      - 47e2f85d-7c4b-7e80-9e12-8d123cbe25bd
+      X-Amzn-Trace-Id:
+      - Root=1-67a90688-1c5dcc314c9f6eb747acd9bd
+      Link:
+      - <https://us1.api.mailchimp.com/schema/3.0/Definitions/ProblemDetailDocument.json>;
+        rel="describedBy"
+      Server:
+      - istio-envoy
+      Vary:
+      - Accept-Encoding
+      X-Envoy-Upstream-Service-Time:
+      - '140'
+      X-Envoy-Decorator-Operation:
+      - http-interposer-desired-service.mailchimp-cloud-httpinterposer-use2-prd-m2.svc.cluster.local:8090/*
+      Strict-Transport-Security:
+      - max-age=31536000
+      Intuit-Tid:
+      - 1-67a90688-1c5dcc314c9f6eb747acd9bd
+      X-Request-Id:
+      - 1-67a90688-1c5dcc314c9f6eb747acd9bd
+      Date:
+      - Sun, 09 Feb 2025 19:48:25 GMT
+      Content-Length:
+      - '211'
+      Connection:
+      - close
+      Akamai-Grn:
+      - 0.ee382f17.1739130504.a672eb8
+    body:
+      encoding: UTF-8
+      string: '{"type":"https://mailchimp.com/developer/marketing/docs/errors/","title":"Resource
+        Not Found","status":404,"detail":"The requested resource could not be found.","instance":"df5f2a30-9b5b-efbc-bed8-7d494acaefde"}'
+  recorded_at: Sun, 09 Feb 2025 19:48:25 GMT
+recorded_with: VCR 6.3.1

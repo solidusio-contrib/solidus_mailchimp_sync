@@ -1,0 +1,226 @@
+---
+http_interactions:
+- request:
+    method: delete
+    uri: https://us1.api.mailchimp.com/3.0/ecommerce/stores/dummy-store-id/products/1
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Authorization:
+      - Basic <OMITTED AUTH HEADER>
+      Connection:
+      - close
+      User-Agent:
+      - http.rb/2.2.2
+  response:
+    status:
+      code: 404
+      message: Not Found
+    headers:
+      Content-Type:
+      - application/problem+json; charset=utf-8
+      X-Spanid:
+      - 7a900e30-cc87-8f79-3c97-14e8bc78ac8b
+      X-Amzn-Trace-Id:
+      - Root=1-67a904c6-004053d769362db574b83c6f
+      Link:
+      - <https://us1.api.mailchimp.com/schema/3.0/Definitions/ProblemDetailDocument.json>;
+        rel="describedBy"
+      Server:
+      - istio-envoy
+      Vary:
+      - Accept-Encoding
+      X-Envoy-Upstream-Service-Time:
+      - '144'
+      X-Envoy-Decorator-Operation:
+      - http-interposer-desired-service.mailchimp-cloud-httpinterposer-use2-prd-m2.svc.cluster.local:8090/*
+      Strict-Transport-Security:
+      - max-age=31536000
+      Intuit-Tid:
+      - 1-67a904c6-004053d769362db574b83c6f
+      X-Request-Id:
+      - 1-67a904c6-004053d769362db574b83c6f
+      Date:
+      - Sun, 09 Feb 2025 19:40:54 GMT
+      Content-Length:
+      - '211'
+      Connection:
+      - close
+      Akamai-Grn:
+      - 0.ee382f17.1739130054.a608ce5
+    body:
+      encoding: UTF-8
+      string: '{"type":"https://mailchimp.com/developer/marketing/docs/errors/","title":"Resource
+        Not Found","status":404,"detail":"The requested resource could not be found.","instance":"c4388fa7-ed99-b6ef-7f90-3c433813fa32"}'
+  recorded_at: Sun, 09 Feb 2025 19:40:54 GMT
+- request:
+    method: post
+    uri: https://us1.api.mailchimp.com/3.0/ecommerce/stores/dummy-store-id/products
+    body:
+      encoding: UTF-8
+      string: '{"id":"1","handle":"product-name","title":"PRODUCT NAME","description":"As
+        seen on TV!","variants":[{"id":"1","title":"PRODUCT NAME","sku":"SKU-25","price":19.99,"visibility":"true","url":"http://www.example.com/products/product-name","image_url":"https://www.example.com/rails/active_storage/disk/eyJfcmFpbHMiOnsiZGF0YSI6eyJrZXkiOiJwc3d4cXo3cjVwM3c5amJsbzc2aHR4NzljeTIxIiwiZGlzcG9zaXRpb24iOiJpbmxpbmU7IGZpbGVuYW1lPVwiYmxhbmsuanBnXCI7IGZpbGVuYW1lKj1VVEYtOCcnYmxhbmsuanBnIiwiY29udGVudF90eXBlIjoiaW1hZ2UvanBlZyIsInNlcnZpY2VfbmFtZSI6InRlc3QifSwiZXhwIjoiMjAyNS0wMi0wOVQxOTo0NTo1NS4yMTlaIiwicHVyIjoiYmxvYl9rZXkifX0=--38dc367479926fa0ce7833c2a2c25d1cd3ba4f94/blank.jpg"}],"url":"http://www.example.com/products/product-name","image_url":"https://www.example.com/rails/active_storage/disk/eyJfcmFpbHMiOnsiZGF0YSI6eyJrZXkiOiJwc3d4cXo3cjVwM3c5amJsbzc2aHR4NzljeTIxIiwiZGlzcG9zaXRpb24iOiJpbmxpbmU7IGZpbGVuYW1lPVwiYmxhbmsuanBnXCI7IGZpbGVuYW1lKj1VVEYtOCcnYmxhbmsuanBnIiwiY29udGVudF90eXBlIjoiaW1hZ2UvanBlZyIsInNlcnZpY2VfbmFtZSI6InRlc3QifSwiZXhwIjoiMjAyNS0wMi0wOVQxOTo0NTo1NS4yMjFaIiwicHVyIjoiYmxvYl9rZXkifX0=--e3364de066d5fdcb74b82e4b7f9ae25a17a6b57f/blank.jpg","published_at_foreign":"2024-02-09T19:40:54Z"}'
+    headers:
+      Authorization:
+      - Basic <OMITTED AUTH HEADER>
+      Connection:
+      - close
+      Content-Type:
+      - application/json; charset=UTF-8
+      User-Agent:
+      - http.rb/2.2.2
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json;charset=utf-8
+      X-Spanid:
+      - e10c22ea-4e38-e17d-a388-c8d05a0d4652
+      X-Amzn-Trace-Id:
+      - Root=1-67a904c7-0ee35e1f5868443512ec0773
+      Link:
+      - <https://us1.api.mailchimp.com/schema/3.0/Ecommerce/Stores/Products/Instance.json>;
+        rel="describedBy"
+      Server:
+      - istio-envoy
+      Vary:
+      - Accept-Encoding
+      X-Envoy-Upstream-Service-Time:
+      - '166'
+      X-Envoy-Decorator-Operation:
+      - http-interposer-desired-service.mailchimp-cloud-httpinterposer-use2-prd-m2.svc.cluster.local:8090/*
+      Strict-Transport-Security:
+      - max-age=31536000
+      Intuit-Tid:
+      - 1-67a904c7-0ee35e1f5868443512ec0773
+      X-Request-Id:
+      - 1-67a904c7-0ee35e1f5868443512ec0773
+      Content-Length:
+      - '3583'
+      Date:
+      - Sun, 09 Feb 2025 19:40:55 GMT
+      Connection:
+      - close
+      Akamai-Grn:
+      - 0.ee382f17.1739130055.a608f9d
+    body:
+      encoding: UTF-8
+      string: '{"id":"1","currency_code":"USD","title":"PRODUCT NAME","handle":"product-name","url":"http://www.example.com/products/product-name","description":"As
+        seen on TV!","type":"","vendor":"","image_url":"https://www.example.com/rails/active_storage/disk/eyJfcmFpbHMiOnsiZGF0YSI6eyJrZXkiOiJwc3d4cXo3cjVwM3c5amJsbzc2aHR4NzljeTIxIiwiZGlzcG9zaXRpb24iOiJpbmxpbmU7IGZpbGVuYW1lPVwiYmxhbmsuanBnXCI7IGZpbGVuYW1lKj1VVEYtOCcnYmxhbmsuanBnIiwiY29udGVudF90eXBlIjoiaW1hZ2Uva","variants":[{"id":"1","title":"PRODUCT
+        NAME","url":"http://www.example.com/products/product-name","sku":"SKU-25","price":19.99,"inventory_quantity":0,"image_url":"https://www.example.com/rails/active_storage/disk/eyJfcmFpbHMiOnsiZGF0YSI6eyJrZXkiOiJwc3d4cXo3cjVwM3c5amJsbzc2aHR4NzljeTIxIiwiZGlzcG9zaXRpb24iOiJpbmxpbmU7IGZpbGVuYW1lPVwiYmxhbmsuanBnXCI7IGZpbGVuYW1lKj1VVEYtOCcnYmxhbmsuanBnIiwiY29udGVudF90eXBlIjoiaW1hZ2Uva","backorders":"","visibility":"true","created_at":"2025-02-09T19:40:55+00:00","updated_at":"2025-02-09T19:40:55+00:00","_links":[{"rel":"self","href":"https://us1.api.mailchimp.com/3.0/ecommerce/stores/dummy-store-id/products/1/variants/1","method":"GET","targetSchema":"https://us1.api.mailchimp.com/schema/3.0/Definitions/Ecommerce/Stores/Products/Variants/Response.json"},{"rel":"parent","href":"https://us1.api.mailchimp.com/3.0/ecommerce/stores/dummy-store-id/products/1","method":"GET","targetSchema":"https://us1.api.mailchimp.com/schema/3.0/Definitions/Ecommerce/Stores/Products/Variants/CollectionResponse.json"},{"rel":"update","href":"https://us1.api.mailchimp.com/3.0/ecommerce/stores/dummy-store-id/products/1/variants/1","method":"PATCH","targetSchema":"https://us1.api.mailchimp.com/schema/3.0/Definitions/Ecommerce/Stores/Products/Variants/Response.json","schema":"https://us1.api.mailchimp.com/schema/3.0/Definitions/Ecommerce/Stores/Products/Variants/PATCH.json"},{"rel":"upsert","href":"https://us1.api.mailchimp.com/3.0/ecommerce/stores/dummy-store-id/products/1/variants/1","method":"PUT","targetSchema":"https://us1.api.mailchimp.com/schema/3.0/Definitions/Ecommerce/Stores/Products/Variants/Response.json","schema":"https://us1.api.mailchimp.com/schema/3.0/Definitions/Ecommerce/Stores/Products/Variants/PUT.json"},{"rel":"delete","href":"https://us1.api.mailchimp.com/3.0/ecommerce/stores/dummy-store-id/products/1/variants/1","method":"DELETE"}]}],"images":[],"published_at_foreign":"2024-02-09T19:40:54+00:00","_links":[{"rel":"self","href":"https://us1.api.mailchimp.com/3.0/ecommerce/stores/dummy-store-id/products/1","method":"GET","targetSchema":"https://us1.api.mailchimp.com/schema/3.0/Definitions/Ecommerce/Stores/Products/Response.json"},{"rel":"parent","href":"https://us1.api.mailchimp.com/3.0/ecommerce/stores/dummy-store-id/products","method":"GET","targetSchema":"https://us1.api.mailchimp.com/schema/3.0/Definitions/Ecommerce/Stores/Products/CollectionResponse.json"},{"rel":"update","href":"https://us1.api.mailchimp.com/3.0/ecommerce/stores/dummy-store-id/products/1","method":"PATCH","targetSchema":"https://us1.api.mailchimp.com/schema/3.0/Definitions/Ecommerce/Stores/Products/Response.json","schema":"https://us1.api.mailchimp.com/schema/3.0/Definitions/Ecommerce/Stores/Products/PATCH.json"},{"rel":"delete","href":"https://us1.api.mailchimp.com/3.0/ecommerce/stores/dummy-store-id/products/1","method":"DELETE"},{"rel":"variants","href":"https://us1.api.mailchimp.com/3.0/ecommerce/stores/dummy-store-id/products/1/variants","method":"GET","targetSchema":"https://us1.api.mailchimp.com/schema/3.0/Definitions/Ecommerce/Stores/Products/Variants/CollectionResponse.json"}]}'
+  recorded_at: Sun, 09 Feb 2025 19:40:55 GMT
+- request:
+    method: post
+    uri: https://us1.api.mailchimp.com/3.0/ecommerce/stores/dummy-store-id/products
+    body:
+      encoding: UTF-8
+      string: '{"id":"1","handle":"product-name","title":"PRODUCT NAME","description":"As
+        seen on TV!","variants":[{"id":"1","title":"PRODUCT NAME","sku":"SKU-1","price":19.99,"visibility":"true","url":"http://www.example.com/products/product-name","image_url":"https://www.example.com/rails/active_storage/disk/eyJfcmFpbHMiOnsiZGF0YSI6eyJrZXkiOiI4dnJtb2Znc3VhYzF4YXYyemxpaTYycnJqeDczIiwiZGlzcG9zaXRpb24iOiJpbmxpbmU7IGZpbGVuYW1lPVwiYmxhbmsuanBnXCI7IGZpbGVuYW1lKj1VVEYtOCcnYmxhbmsuanBnIiwiY29udGVudF90eXBlIjoiaW1hZ2UvanBlZyIsInNlcnZpY2VfbmFtZSI6InRlc3QifSwiZXhwIjoiMjAyNS0wMi0wOVQyMDo0NzowNS4xNDBaIiwicHVyIjoiYmxvYl9rZXkifX0=--4edb8a8d9e62261902b96cf6092d0ea1303f66f6/blank.jpg"}],"url":"http://www.example.com/products/product-name","image_url":"https://www.example.com/rails/active_storage/disk/eyJfcmFpbHMiOnsiZGF0YSI6eyJrZXkiOiI4dnJtb2Znc3VhYzF4YXYyemxpaTYycnJqeDczIiwiZGlzcG9zaXRpb24iOiJpbmxpbmU7IGZpbGVuYW1lPVwiYmxhbmsuanBnXCI7IGZpbGVuYW1lKj1VVEYtOCcnYmxhbmsuanBnIiwiY29udGVudF90eXBlIjoiaW1hZ2UvanBlZyIsInNlcnZpY2VfbmFtZSI6InRlc3QifSwiZXhwIjoiMjAyNS0wMi0wOVQyMDo0NzowNS4xNDNaIiwicHVyIjoiYmxvYl9rZXkifX0=--80307353a0e13dd0b98a191ad8f6a2a8ca242ee8/blank.jpg","published_at_foreign":"2024-02-09T20:42:01Z"}'
+    headers:
+      Authorization:
+      - Basic <OMITTED AUTH HEADER>
+      Connection:
+      - close
+      Content-Type:
+      - application/json; charset=UTF-8
+      User-Agent:
+      - http.rb/2.2.2
+  response:
+    status:
+      code: 400
+      message: Bad Request
+    headers:
+      Content-Type:
+      - application/problem+json; charset=utf-8
+      X-Spanid:
+      - b57fb71c-6d69-525e-cfaa-eb25a383d919
+      X-Amzn-Trace-Id:
+      - Root=1-67a9131d-6acf0684218674c40bff49ce
+      Link:
+      - <https://us1.api.mailchimp.com/schema/3.0/Definitions/ProblemDetailDocument.json>;
+        rel="describedBy"
+      Server:
+      - istio-envoy
+      Vary:
+      - Accept-Encoding
+      X-Envoy-Upstream-Service-Time:
+      - '159'
+      X-Envoy-Decorator-Operation:
+      - http-interposer-desired-service.mailchimp-cloud-httpinterposer-use2-prd-m2.svc.cluster.local:8090/*
+      Strict-Transport-Security:
+      - max-age=31536000
+      Intuit-Tid:
+      - 1-67a9131d-6acf0684218674c40bff49ce
+      X-Request-Id:
+      - 1-67a9131d-6acf0684218674c40bff49ce
+      Date:
+      - Sun, 09 Feb 2025 20:42:05 GMT
+      Connection:
+      - close
+      Akamai-Grn:
+      - 0.7129c817.1739133725.2f3c7192
+    body:
+      encoding: UTF-8
+      string: '{"type":"https://mailchimp.com/developer/marketing/docs/errors/","title":"Bad
+        Request","status":400,"detail":"We were unable to process the request. A product
+        with the provided ID already exists in the account.","instance":"65ad1133-1304-ab45-4ae3-240a68f7b870"}'
+  recorded_at: Sun, 09 Feb 2025 20:42:05 GMT
+- request:
+    method: put
+    uri: https://us1.api.mailchimp.com/3.0/ecommerce/stores/dummy-store-id/products/1/variants/1
+    body:
+      encoding: UTF-8
+      string: '{"id":"1","title":"PRODUCT NAME","sku":"SKU-1","price":19.99,"visibility":"true","url":"http://www.example.com/products/product-name","image_url":"https://www.example.com/rails/active_storage/disk/eyJfcmFpbHMiOnsiZGF0YSI6eyJrZXkiOiI4dnJtb2Znc3VhYzF4YXYyemxpaTYycnJqeDczIiwiZGlzcG9zaXRpb24iOiJpbmxpbmU7IGZpbGVuYW1lPVwiYmxhbmsuanBnXCI7IGZpbGVuYW1lKj1VVEYtOCcnYmxhbmsuanBnIiwiY29udGVudF90eXBlIjoiaW1hZ2UvanBlZyIsInNlcnZpY2VfbmFtZSI6InRlc3QifSwiZXhwIjoiMjAyNS0wMi0wOVQyMDo0NzowNS41MzZaIiwicHVyIjoiYmxvYl9rZXkifX0=--da4b861489f6db470ceed32605a17428b767402a/blank.jpg"}'
+    headers:
+      Authorization:
+      - Basic <OMITTED AUTH HEADER>
+      Connection:
+      - close
+      Content-Type:
+      - application/json; charset=UTF-8
+      User-Agent:
+      - http.rb/2.2.2
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json;charset=utf-8
+      X-Spanid:
+      - 9861f4bf-2025-7a95-d406-4de5f66f2d55
+      X-Amzn-Trace-Id:
+      - Root=1-67a9131d-07b88f4b2d1916c72aa06708
+      Link:
+      - <https://us1.api.mailchimp.com/schema/3.0/Ecommerce/Stores/Products/Variants/Instance.json>;
+        rel="describedBy"
+      Server:
+      - istio-envoy
+      Vary:
+      - Accept-Encoding
+      X-Envoy-Upstream-Service-Time:
+      - '184'
+      X-Envoy-Decorator-Operation:
+      - http-interposer-desired-service.mailchimp-cloud-httpinterposer-use2-prd-m2.svc.cluster.local:8090/*
+      Strict-Transport-Security:
+      - max-age=31536000
+      Intuit-Tid:
+      - 1-67a9131d-07b88f4b2d1916c72aa06708
+      X-Request-Id:
+      - 1-67a9131d-07b88f4b2d1916c72aa06708
+      Date:
+      - Sun, 09 Feb 2025 20:42:05 GMT
+      Content-Length:
+      - '2031'
+      Connection:
+      - close
+      Akamai-Grn:
+      - 0.7129c817.1739133725.2f3c7609
+    body:
+      encoding: UTF-8
+      string: '{"id":"1","title":"PRODUCT NAME","url":"http://www.example.com/products/product-name","sku":"SKU-1","price":19.99,"inventory_quantity":0,"image_url":"https://www.example.com/rails/active_storage/disk/eyJfcmFpbHMiOnsiZGF0YSI6eyJrZXkiOiI4dnJtb2Znc3VhYzF4YXYyemxpaTYycnJqeDczIiwiZGlzcG9zaXRpb24iOiJpbmxpbmU7IGZpbGVuYW1lPVwiYmxhbmsuanBnXCI7IGZpbGVuYW1lKj1VVEYtOCcnYmxhbmsuanBnIiwiY29udGVudF90eXBlIjoiaW1hZ2UvanBlZyIsInNlcnZpY2VfbmFtZSI6InRlc3QifSwiZXhwIjoiMjAyNS0wMi0wOVQyMDo0NzowNS41MzZaIiwicHVyIjoiYmxvYl9rZXkifX0=--da4b861489f6db470ceed32605a17428b767402a/blank.jpg","backorders":"","visibility":"true","created_at":"2025-02-09T20:42:05+00:00","updated_at":"2025-02-09T20:42:05+00:00","_links":[{"rel":"self","href":"https://us1.api.mailchimp.com/3.0/ecommerce/stores/dummy-store-id/products/1/variants/1","method":"GET","targetSchema":"https://us1.api.mailchimp.com/schema/3.0/Definitions/Ecommerce/Stores/Products/Variants/Response.json"},{"rel":"parent","href":"https://us1.api.mailchimp.com/3.0/ecommerce/stores/dummy-store-id/products/1","method":"GET","targetSchema":"https://us1.api.mailchimp.com/schema/3.0/Definitions/Ecommerce/Stores/Products/Variants/CollectionResponse.json"},{"rel":"update","href":"https://us1.api.mailchimp.com/3.0/ecommerce/stores/dummy-store-id/products/1/variants/1","method":"PATCH","targetSchema":"https://us1.api.mailchimp.com/schema/3.0/Definitions/Ecommerce/Stores/Products/Variants/Response.json","schema":"https://us1.api.mailchimp.com/schema/3.0/Definitions/Ecommerce/Stores/Products/Variants/PATCH.json"},{"rel":"upsert","href":"https://us1.api.mailchimp.com/3.0/ecommerce/stores/dummy-store-id/products/1/variants/1","method":"PUT","targetSchema":"https://us1.api.mailchimp.com/schema/3.0/Definitions/Ecommerce/Stores/Products/Variants/Response.json","schema":"https://us1.api.mailchimp.com/schema/3.0/Definitions/Ecommerce/Stores/Products/Variants/PUT.json"},{"rel":"delete","href":"https://us1.api.mailchimp.com/3.0/ecommerce/stores/dummy-store-id/products/1/variants/1","method":"DELETE"}]}'
+  recorded_at: Sun, 09 Feb 2025 20:42:05 GMT
+recorded_with: VCR 6.3.1
