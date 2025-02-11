@@ -4,13 +4,10 @@ require 'vcr'
 require 'webmock'
 
 VCR.configure do |config|
-  config.cassette_library_dir = "spec/vcr_cassettes"
-  config.hook_into :webmock # or :fakeweb
+  config.ignore_localhost = true
+  config.cassette_library_dir = 'spec/fixtures/vcr_cassettes'
+  config.hook_into :webmock
   config.configure_rspec_metadata!
-
-  config.default_cassette_options = {
-    record: ENV['VCR_RECORD'].present? ? ENV['VCR_RECORD'].to_sym : :once
-  }
 
   # Filter out basic auth
   config.filter_sensitive_data('<OMITTED AUTH HEADER>') do

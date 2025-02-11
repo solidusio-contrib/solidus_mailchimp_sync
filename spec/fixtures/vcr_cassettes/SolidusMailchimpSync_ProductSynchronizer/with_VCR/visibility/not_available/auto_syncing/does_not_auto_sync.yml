@@ -1,0 +1,111 @@
+---
+http_interactions:
+- request:
+    method: delete
+    uri: https://us1.api.mailchimp.com/3.0/ecommerce/stores/dummy-store-id/products/1
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Authorization:
+      - Basic <OMITTED AUTH HEADER>
+      Connection:
+      - close
+      User-Agent:
+      - http.rb/2.2.2
+  response:
+    status:
+      code: 404
+      message: Not Found
+    headers:
+      Content-Type:
+      - application/problem+json; charset=utf-8
+      X-Spanid:
+      - c6ee8c53-4941-d760-bfd4-2aaf4c4bae92
+      X-Amzn-Trace-Id:
+      - Root=1-67a9126a-469a65162afc69b55b14c9f2
+      Link:
+      - <https://us1.api.mailchimp.com/schema/3.0/Definitions/ProblemDetailDocument.json>;
+        rel="describedBy"
+      Server:
+      - istio-envoy
+      Vary:
+      - Accept-Encoding
+      X-Envoy-Upstream-Service-Time:
+      - '153'
+      X-Envoy-Decorator-Operation:
+      - http-interposer-desired-service.mailchimp-cloud-httpinterposer-use2-prd-m2.svc.cluster.local:8090/*
+      Strict-Transport-Security:
+      - max-age=31536000
+      Intuit-Tid:
+      - 1-67a9126a-469a65162afc69b55b14c9f2
+      X-Request-Id:
+      - 1-67a9126a-469a65162afc69b55b14c9f2
+      Date:
+      - Sun, 09 Feb 2025 20:39:06 GMT
+      Content-Length:
+      - '211'
+      Connection:
+      - close
+      Akamai-Grn:
+      - 0.7129c817.1739133546.2f329c1e
+    body:
+      encoding: UTF-8
+      string: '{"type":"https://mailchimp.com/developer/marketing/docs/errors/","title":"Resource
+        Not Found","status":404,"detail":"The requested resource could not be found.","instance":"10bdee99-d67c-1855-fcd5-46ca0dfc097c"}'
+  recorded_at: Sun, 09 Feb 2025 20:39:06 GMT
+- request:
+    method: get
+    uri: https://us1.api.mailchimp.com/3.0/ecommerce/stores/dummy-store-id/products/1
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Authorization:
+      - Basic <OMITTED AUTH HEADER>
+      Connection:
+      - close
+      User-Agent:
+      - http.rb/2.2.2
+  response:
+    status:
+      code: 404
+      message: Not Found
+    headers:
+      Content-Type:
+      - application/problem+json; charset=utf-8
+      X-Spanid:
+      - ddbe827d-dde2-8a70-4a14-92ac4a43acce
+      X-Amzn-Trace-Id:
+      - Root=1-67a9126a-4b37f8cc6b0ef6b71efc81b7
+      Link:
+      - <https://us1.api.mailchimp.com/schema/3.0/Definitions/ProblemDetailDocument.json>;
+        rel="describedBy"
+      Server:
+      - istio-envoy
+      Vary:
+      - Accept-Encoding
+      X-Envoy-Upstream-Service-Time:
+      - '151'
+      X-Envoy-Decorator-Operation:
+      - http-interposer-desired-service.mailchimp-cloud-httpinterposer-use2-prd-m2.svc.cluster.local:8090/*
+      Strict-Transport-Security:
+      - max-age=31536000
+      Intuit-Tid:
+      - 1-67a9126a-4b37f8cc6b0ef6b71efc81b7
+      X-Request-Id:
+      - 1-67a9126a-4b37f8cc6b0ef6b71efc81b7
+      Content-Length:
+      - '211'
+      Date:
+      - Sun, 09 Feb 2025 20:39:07 GMT
+      Connection:
+      - close
+      Akamai-Grn:
+      - 0.7129c817.1739133546.2f32a346
+    body:
+      encoding: UTF-8
+      string: '{"type":"https://mailchimp.com/developer/marketing/docs/errors/","title":"Resource
+        Not Found","status":404,"detail":"The requested resource could not be found.","instance":"4a3c2cd3-7c5c-b541-9a69-62c967a2194e"}'
+  recorded_at: Sun, 09 Feb 2025 20:39:06 GMT
+recorded_with: VCR 6.3.1
